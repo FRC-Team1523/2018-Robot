@@ -1,0 +1,31 @@
+## Java
+*.class
+
+## Classpaths and Projects
+.project
+.classpath
+
+## VSCode
+.vscode/
+
+## Eclipse
+.metadata
+
+## IntelliJ
+/.idea
+
+## Other
+bin/*
+dist/*
+# Keep empty folders
+!bin/.gitkeep
+!dist/.gitkeep
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
