@@ -1,5 +1,5 @@
 
-package org.usfirst.frc.team1523.robot;
+package frc.team1523.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -8,8 +8,12 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team1523.robot.commands.ExampleCommand;
-import org.usfirst.frc.team1523.robot.subsystems.ExampleSubsystem;
+import edu.wpi.first.wpilibj.Talon;
+
+import edu.wpi.first.wpilibj.SpeedController;
+
+import frc.team1523.robot.commands.ExampleCommand;
+import frc.team1523.robot.subsystems.ExampleSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -22,6 +26,9 @@ public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
+
+	SpeedController motor1 = new Talon(5);
+
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -36,6 +43,8 @@ public class Robot extends IterativeRobot {
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
+
+		motor1.set(0.5);
 	}
 
 	/**

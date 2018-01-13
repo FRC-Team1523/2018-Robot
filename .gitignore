@@ -10,13 +10,20 @@
 
 ## Eclipse
 .metadata
+.settings/
 
 ## IntelliJ
 /.idea
+/*.iml
+/*.ipr
+/*.iws
 
 ## Other
-bin/*
-dist/*
+bin/
+dist/
+build/
+gradle/
+.gradle/
 # Keep empty folders
 !bin/.gitkeep
 !dist/.gitkeep

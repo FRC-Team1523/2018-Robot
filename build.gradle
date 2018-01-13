@@ -1,0 +1,38 @@
+plugins {
+    id "java"
+    id "eclipse"
+    id "idea"
+    id "jaci.openrio.gradle.GradleRIO" version "2018.01.07"
+}
+
+def TEAM = 1523
+def ROBOT_CLASS = "frc.team${TEAM}.robot.Robot"
+
+deploy {
+    targets {
+        target("roborio", jaci.openrio.gradle.frc.RoboRIO) {
+            team = TEAM
+        }
+    }
+    artifacts {
+        artifact('frcJava', jaci.openrio.gradle.frc.FRCJavaArtifact) {
+            targets << "roborio"
+        }
+    }
+}
+
+dependencies {
+    compile wpilib()
+    compile ctre()
+    // compile navx()
+    compile openrio.powerup.matchData()
+}
+
+jar {
+    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    manifest jaci.openrio.gradle.GradleRIOPlugin.javaManifest(ROBOT_CLASS)
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.4'
+}

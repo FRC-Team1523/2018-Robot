@@ -1,8 +1,8 @@
-package org.usfirst.frc.team1523.robot.commands;
+package frc.team1523.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-import org.usfirst.frc.team1523.robot.Robot;
+import frc.team1523.robot.Robot;
 
 /**
  *
