@@ -5,8 +5,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.team1523.robot.Robot;
 
 public class Pistons extends Command {
-
-    public Pistons() { requires(Robot.pneumatics); }
+    public Pistons() {
+        requires(Robot.pneumatics);
+    }
 
     @Override
     protected void initialize() {
@@ -14,15 +15,11 @@ public class Pistons extends Command {
     }
 
     @Override
-    protected void execute(){
-        if(Robot.oi.gamepad.getAButton() && !Robot.pneumatics.activated){
-            Robot.pneumatics.pistonsOn();
+    protected void execute() {
+        if (Robot.oi.gamepad.getAButton()) {
+            Robot.pneumatics.togglePistons();
         }
-        if(Robot.oi.gamepad.getBButton() && Robot.pneumatics.activated){
-            Robot.pneumatics.resetPistons();
-        }
-
-        SmartDashboard.putBoolean("Activated: ", Robot.pneumatics.activated);
+        SmartDashboard.putBoolean("Activated:", Robot.pneumatics.activated);
     }
 
 
@@ -32,6 +29,6 @@ public class Pistons extends Command {
     }
 
     @Override
-    protected void end(){}
-
+    protected void end() {
+    }
 }

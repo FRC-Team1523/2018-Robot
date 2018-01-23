@@ -7,8 +7,8 @@ import frc.team1523.robot.commands.Pistons;
 
 public class Pneumatics extends Subsystem {
 
-    Solenoid s1 = new Solenoid(RobotMap.SOLENOID_1);
-    Solenoid s2 = new Solenoid(RobotMap.SOLENOID_2);
+    private Solenoid s1 = new Solenoid(RobotMap.SOLENOID_1);
+    private Solenoid s2 = new Solenoid(RobotMap.SOLENOID_2);
 
     public boolean activated = false;
 
@@ -18,16 +18,28 @@ public class Pneumatics extends Subsystem {
         resetPistons();
     }
 
-    public void resetPistons(){
+    private void updatePistons() {
+        s1.set(activated);
+        s2.set(activated);
+    }
+
+    public void resetPistons() {
         activated = false;
-        s1.set(false);
-        s2.set(false);
+        updatePistons();
     }
 
-    public void pistonsOn(){
+    public void enablePistons() {
         activated = true;
-        s1.set(true);
-        s2.set(true);
+        updatePistons();
     }
 
+    public void disablePistons() {
+        activated = false;
+        updatePistons();
+    }
+
+    public void togglePistons() {
+        activated = !activated;
+        updatePistons();
+    }
 }

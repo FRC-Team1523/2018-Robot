@@ -11,15 +11,15 @@ public class Robot extends IterativeRobot {
     public static OI oi;
     public static DriveTrain driveTrain;
     public static Pneumatics pneumatics;
-    public static Compressor comp;
+    public static Compressor compressor;
 
     @Override
     public void robotInit() {
         oi = new OI();
         driveTrain = new DriveTrain();
         pneumatics = new Pneumatics();
-        comp = new Compressor(0);
-        comp.setClosedLoopControl(true);
+        compressor = new Compressor(RobotMap.COMPRESSOR);
+        compressor.setClosedLoopControl(true);
 
     }
 
