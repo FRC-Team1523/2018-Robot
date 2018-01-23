@@ -3,6 +3,7 @@ package frc.team1523.robot;
 public class RobotMap {
     /// Controllers
     public static int JOYSTICK_USB_PORT = 0;
+    public static int GAMEPAD_USB_PORT = 1;
 
     /// Drive motors
     // Drive - left
@@ -11,4 +12,9 @@ public class RobotMap {
     // Drive - right
     public static int DRIVE_RIGHT_FRONT = 8;
     public static int DRIVE_RIGHT_REAR = 2;
+
+    //Pneumatics
+    public static int SOLENOID_1 = 2;
+    public static int SOLENOID_2 = 5;
+
 }

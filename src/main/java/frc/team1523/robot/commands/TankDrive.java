@@ -1,8 +1,6 @@
 package frc.team1523.robot.commands;
 
-import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Command;
-
 import frc.team1523.robot.Constants;
 import frc.team1523.robot.Robot;
 
@@ -31,6 +29,8 @@ public class TankDrive extends Command {
 //        rightSpeed = square(adaptiveDeadband(rightSpeed));
 
         Robot.driveTrain.setMotors(leftSpeed, leftSpeed);
+
+
     }
 
     private double adaptiveDeadband(double value) {
