@@ -7,16 +7,20 @@ import frc.team1523.robot.subsystems.DriveTrain;
 import frc.team1523.robot.subsystems.Pneumatics;
 
 public class Robot extends IterativeRobot {
+
     public static OI oi;
     public static DriveTrain driveTrain;
     public static Pneumatics pneumatics;
-
+    public static Compressor comp;
 
     @Override
     public void robotInit() {
         oi = new OI();
         driveTrain = new DriveTrain();
         pneumatics = new Pneumatics();
+        comp = new Compressor(0);
+        comp.setClosedLoopControl(true);
+
     }
 
     @Override
