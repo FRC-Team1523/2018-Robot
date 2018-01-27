@@ -20,7 +20,6 @@ public class Robot extends IterativeRobot {
         pneumatics = new Pneumatics();
         compressor = new Compressor(RobotMap.COMPRESSOR);
         compressor.setClosedLoopControl(true);
-
     }
 
     @Override
@@ -45,6 +44,7 @@ public class Robot extends IterativeRobot {
 
     @Override
     public void teleopInit() {
+
     }
 
     /**

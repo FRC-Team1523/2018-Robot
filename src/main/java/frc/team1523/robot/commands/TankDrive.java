@@ -11,8 +11,7 @@ public class TankDrive extends Command {
 
     @Override
     protected void initialize() {
-        // Cleanup motor state
-        Robot.driveTrain.setMotors(0, 0);
+
     }
 
     /**
@@ -20,17 +19,7 @@ public class TankDrive extends Command {
      */
     @Override
     protected void execute() {
-        /// SQUARE
-        double leftSpeed = boringDeadband(Robot.oi.joystick.getY());
-
-//        double rightSpeed = Robot.oi.joystick.getX();
-
-//        leftSpeed = square(adaptiveDeadband(leftSpeed));
-//        rightSpeed = square(adaptiveDeadband(rightSpeed));
-
-        Robot.driveTrain.setMotors(leftSpeed, leftSpeed);
-
-
+        Robot.driveTrain.drive(Robot.oi.joystick);
     }
 
     private double adaptiveDeadband(double value) {
@@ -73,5 +62,6 @@ public class TankDrive extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+
     }
 }

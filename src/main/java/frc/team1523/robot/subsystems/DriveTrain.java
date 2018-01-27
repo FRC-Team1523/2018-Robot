@@ -1,8 +1,11 @@
 package frc.team1523.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.team1523.robot.Constants;
 import frc.team1523.robot.RobotMap;
@@ -13,29 +16,24 @@ public class DriveTrain extends Subsystem {
     private Talon left_front = new Talon(RobotMap.DRIVE_LEFT_FRONT);
     private Talon left_rear = new Talon(RobotMap.DRIVE_LEFT_REAR);
     private Talon right_front = new Talon(RobotMap.DRIVE_RIGHT_FRONT);
-    private Spark right_rear = new Spark(RobotMap.DRIVE_RIGHT_REAR);
+    private Talon right_rear = new Talon(RobotMap.DRIVE_RIGHT_REAR);
+
+    private SpeedControllerGroup group_left = new SpeedControllerGroup(left_front, left_rear);
+    private SpeedControllerGroup group_right = new SpeedControllerGroup(right_front, right_rear);
+
+    private DifferentialDrive drive = new DifferentialDrive(group_left, group_right);
 
     public void initDefaultCommand() {
         setDefaultCommand(new TankDrive());
-        left_front.setInverted(true);
-        left_rear.setInverted(true);
     }
 
     /**
      * Sets the speed of the tank drive motors
      *
-     * @param left  the left motor speed
-     * @param right the right motor speed
+     * @param stick the input joystick
      */
-    public void setMotors(double left, double right) {
-        left = clamp(left);
-        right = clamp(right);
-
-        left_front.set(left);
-        left_rear.set(left*1.7);
-
-        right_front.set(left);
-        right_rear.set(left);
+    public void drive(Joystick stick) {
+        drive.arcadeDrive(-stick.getY(), -stick.getZ());
     }
 
     /**
