@@ -11,7 +11,7 @@ public class RobotMap {
     public static int DRIVE_LEFT_REAR = 6;
 
     // Drive - right
-    public static int DRIVE_RIGHT_FRONT = 5;
+    public static int DRIVE_RIGHT_FRONT = 2;
     public static int DRIVE_RIGHT_REAR = 4;
 
     /// Pneumatics

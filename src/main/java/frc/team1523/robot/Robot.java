@@ -3,6 +3,8 @@ package frc.team1523.robot;
 
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import frc.team1523.robot.commands.ArmCommand;
+import frc.team1523.robot.subsystems.Arm;
 import frc.team1523.robot.subsystems.DriveTrain;
 import frc.team1523.robot.subsystems.Pneumatics;
 
@@ -10,6 +12,7 @@ public class Robot extends IterativeRobot {
 
     public static OI oi;
     public static DriveTrain driveTrain;
+    public static Arm arm;
     public static Pneumatics pneumatics;
     public static Compressor compressor;
 
@@ -17,6 +20,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
         oi = new OI();
         driveTrain = new DriveTrain();
+        arm = new Arm();
 //        pneumatics = new Pneumatics();
 //        compressor = new Compressor(RobotMap.COMPRESSOR);
 //        compressor.setClosedLoopControl(true);

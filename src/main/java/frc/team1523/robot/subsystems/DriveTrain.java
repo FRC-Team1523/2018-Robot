@@ -14,15 +14,19 @@ import frc.team1523.robot.commands.TankDrive;
 public class DriveTrain extends Subsystem {
 
     private Talon left_front = new Talon(RobotMap.DRIVE_LEFT_FRONT);
-    private Talon left_rear = new Talon(RobotMap.DRIVE_LEFT_REAR);
+//    private Talon left_rear = new Talon(RobotMap.DRIVE_LEFT_REAR);
     private Talon right_front = new Talon(RobotMap.DRIVE_RIGHT_FRONT);
-    private Talon right_rear = new Talon(RobotMap.DRIVE_RIGHT_REAR);
+//    private Talon right_rear = new Talon(RobotMap.DRIVE_RIGHT_REAR);
 
-    private SpeedControllerGroup group_left = new SpeedControllerGroup(left_front, left_rear);
-    private SpeedControllerGroup group_right = new SpeedControllerGroup(right_front, right_rear);
+//    private SpeedControllerGroup group_left = new SpeedControllerGroup(left_front, left_rear);
+//    private SpeedControllerGroup group_right = new SpeedControllerGroup(right_front, right_rear);
+
+    private SpeedControllerGroup group_left = new SpeedControllerGroup(left_front);
+    private SpeedControllerGroup group_right = new SpeedControllerGroup(right_front);
 
     private DifferentialDrive drive = new DifferentialDrive(group_left, group_right);
 
+    @Override
     public void initDefaultCommand() {
         setDefaultCommand(new TankDrive());
     }
