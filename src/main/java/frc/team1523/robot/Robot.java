@@ -17,9 +17,9 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
         oi = new OI();
         driveTrain = new DriveTrain();
-        pneumatics = new Pneumatics();
-        compressor = new Compressor(RobotMap.COMPRESSOR);
-        compressor.setClosedLoopControl(true);
+//        pneumatics = new Pneumatics();
+//        compressor = new Compressor(RobotMap.COMPRESSOR);
+//        compressor.setClosedLoopControl(true);
     }
 
     @Override
