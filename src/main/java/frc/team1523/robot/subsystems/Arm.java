@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.team1523.robot.commands.ArmCommand;
 
 public class Arm extends Subsystem {
-    private Spark arm_spark = new Spark(0);
+    private Spark ArmSpark = new Spark(0);
 
     @Override
     public void initDefaultCommand() {
@@ -17,12 +17,12 @@ public class Arm extends Subsystem {
         // Right up
         double speed = 0.5;
         if (stick.getRawButton(6)) {
-            arm_spark.set(speed);
+            ArmSpark.set(speed);
         } else if (stick.getRawButton(5)) {
-            arm_spark.set(-speed);
+            ArmSpark.set(-speed);
 
         } else {
-            arm_spark.set(0.0);
+            ArmSpark.set(0.0);
         }
     }
 }
