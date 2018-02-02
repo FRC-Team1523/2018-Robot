@@ -3,7 +3,6 @@ package frc.team1523.robot;
 
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import frc.team1523.robot.commands.ArmCommand;
 import frc.team1523.robot.subsystems.Arm;
 import frc.team1523.robot.subsystems.DriveTrain;
 import frc.team1523.robot.subsystems.Pneumatics;
@@ -27,7 +26,7 @@ public class Robot extends IterativeRobot {
     }
 
     @Override
-    public void disabledInit(){
+    public void disabledInit() {
     }
 
     @Override
@@ -38,6 +37,7 @@ public class Robot extends IterativeRobot {
     @Override
     public void autonomousInit() {
     }
+
     /**
      * This function is called periodically during autonomous
      */

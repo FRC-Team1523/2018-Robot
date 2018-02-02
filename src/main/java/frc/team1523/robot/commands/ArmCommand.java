@@ -8,7 +8,6 @@ public class ArmCommand extends Command {
         requires(Robot.arm);
     }
 
-
     @Override
     protected void initialize() {
 
