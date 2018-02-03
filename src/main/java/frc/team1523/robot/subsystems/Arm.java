@@ -20,7 +20,6 @@ public class Arm extends Subsystem {
             ArmSpark.set(speed);
         } else if (stick.getRawButton(5)) {
             ArmSpark.set(-speed);
-
         } else {
             ArmSpark.set(0.0);
         }
