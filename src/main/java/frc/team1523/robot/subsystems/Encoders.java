@@ -11,5 +11,6 @@ public class Encoders extends Subsystem {
     public void initDefaultCommand() {
         left = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
         right = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
+        right.setReverseDirection(true);
     }
 }
