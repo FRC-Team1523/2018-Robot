@@ -10,7 +10,7 @@ public class RobotMap {
     public static int DRIVE_RIGHT = 2;
 
     /// Pneumatics
-    public static int SOLENOID_1 = 2;
-    public static int SOLENOID_2 = 5;
+    public static int SOLENOID_1 = 0;
+    public static int SOLENOID_2 = 1;
     public static int COMPRESSOR = 0;
 }

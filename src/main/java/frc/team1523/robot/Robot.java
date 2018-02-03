@@ -3,23 +3,28 @@ package frc.team1523.robot;
 
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.team1523.robot.subsystems.Arm;
 import frc.team1523.robot.subsystems.DriveTrain;
+import frc.team1523.robot.subsystems.Encoders;
 import frc.team1523.robot.subsystems.Pneumatics;
 
 public class Robot extends IterativeRobot {
 
     public static OI oi;
     public static DriveTrain driveTrain;
+    public static Encoders encoders;
     public static Arm arm;
     public static Pneumatics pneumatics;
     public static Compressor compressor;
+
 
     @Override
     public void robotInit() {
         oi = new OI();
         driveTrain = new DriveTrain();
         arm = new Arm();
+        encoders = new Encoders();
 //        pneumatics = new Pneumatics();
 //        compressor = new Compressor(RobotMap.COMPRESSOR);
 //        compressor.setClosedLoopControl(true);
@@ -32,6 +37,14 @@ public class Robot extends IterativeRobot {
     @Override
     public void disabledPeriodic() {
         Scheduler.getInstance().run();
+    }
+
+    @Override
+    public void robotPeriodic() {
+        Scheduler.getInstance().run();
+        SmartDashboard.putNumber("Encoder 1", encoders.left.getDistance());
+        SmartDashboard.putNumber("Encoder 2", encoders.right.getDistance());
+
     }
 
     @Override
