@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.team1523.robot.InplaceDifferentialDrive;
+import frc.team1523.robot.Robot;
 import frc.team1523.robot.RobotMap;
 import frc.team1523.robot.commands.TankDrive;
 
@@ -30,4 +31,22 @@ public class DriveTrain extends Subsystem {
 //        drive.curvatureDrive(-stick.getY(), stick.getZ(), stick.getRawButton(2));
         drive.inplaceDrive(-stick.getY(), stick.getZ(), stick.getX(), true);
     }
+
+    /**
+     * Sets drive motor encoder distances to zero
+     */
+    public void reset() {
+        Robot.encoders.left.reset();
+        Robot.encoders.right.reset();
+
+    }
+
+    /**
+     * Stops all drive motors
+     */
+    public void stopMotors() {
+        leftMotor.stopMotor();
+        rightMotor.stopMotor();
+    }
+
 }
