@@ -21,12 +21,18 @@ public class Robot extends IterativeRobot {
     public static Pneumatics pneumatics;
     public static Compressor compressor;
 
+
+    public static AutoDrive autoDrive;
+
+
     @Override
     public void robotInit() {
         oi = new OI();
         driveTrain = new DriveTrain();
         arm = new Arm();
         encoders = new Encoders();
+
+
 //        pneumatics = new Pneumatics();
 //        compressor = new Compressor(RobotMap.COMPRESSOR);
 //        compressor.setClosedLoopControl(true);
@@ -46,11 +52,12 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Encoder 1", encoders.left.getDistance());
         SmartDashboard.putNumber("Encoder 2", encoders.right.getDistance());
-
     }
 
     @Override
     public void autonomousInit() {
+        autoDrive = new AutoDrive(0.25, 5 * Constants.WHEEL_INCH);
+        autoDrive.start();
 //        autonomousCommand = chooser.getSelected();
 //        if (autonomousCommand != null) {
 //            autonomousCommand.start();
