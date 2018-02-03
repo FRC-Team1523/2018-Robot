@@ -33,7 +33,6 @@ public class DriveTrain extends Subsystem {
     }
 
     public void drive(double leftSpeed, double rightSpeed) {
-//        drive.tankDrive(leftSpeed, rightSpeed);
         leftMotor.set(leftSpeed);
         rightMotor.set(-rightSpeed);
     }
