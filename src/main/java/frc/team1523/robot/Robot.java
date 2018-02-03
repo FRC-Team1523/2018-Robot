@@ -2,8 +2,11 @@
 package frc.team1523.robot;
 
 import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.team1523.robot.commands.AutoDrive;
 import frc.team1523.robot.subsystems.Arm;
 import frc.team1523.robot.subsystems.DriveTrain;
 import frc.team1523.robot.subsystems.Encoders;
@@ -17,7 +20,6 @@ public class Robot extends IterativeRobot {
     public static Arm arm;
     public static Pneumatics pneumatics;
     public static Compressor compressor;
-
 
     @Override
     public void robotInit() {
@@ -49,6 +51,10 @@ public class Robot extends IterativeRobot {
 
     @Override
     public void autonomousInit() {
+//        autonomousCommand = chooser.getSelected();
+//        if (autonomousCommand != null) {
+//            autonomousCommand.start();
+//        }
     }
 
     /**

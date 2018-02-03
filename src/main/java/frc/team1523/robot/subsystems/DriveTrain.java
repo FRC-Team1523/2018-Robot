@@ -32,6 +32,12 @@ public class DriveTrain extends Subsystem {
         drive.inplaceDrive(-stick.getY(), stick.getZ(), stick.getX(), true);
     }
 
+    public void drive(double leftSpeed, double rightSpeed) {
+//        drive.tankDrive(leftSpeed, rightSpeed);
+        leftMotor.set(leftSpeed);
+        rightMotor.set(-rightSpeed);
+    }
+
     /**
      * Sets drive motor encoder distances to zero
      */
