@@ -32,10 +32,9 @@ public class Robot extends IterativeRobot {
         arm = new Arm();
         encoders = new Encoders();
 
-
-//        pneumatics = new Pneumatics();
-//        compressor = new Compressor(RobotMap.COMPRESSOR);
-//        compressor.setClosedLoopControl(true);
+        pneumatics = new Pneumatics();
+        compressor = new Compressor(RobotMap.COMPRESSOR);
+        compressor.setClosedLoopControl(true);
     }
 
     @Override
@@ -56,8 +55,8 @@ public class Robot extends IterativeRobot {
 
     @Override
     public void autonomousInit() {
-        autoDrive = new AutoDrive(0.25, 5 * Constants.WHEEL_INCH);
-        autoDrive.start();
+//        autoDrive = new AutoDrive(0.25, 5 * Constants.WHEEL_INCH);
+//        autoDrive.start();
 //        autonomousCommand = chooser.getSelected();
 //        if (autonomousCommand != null) {
 //            autonomousCommand.start();

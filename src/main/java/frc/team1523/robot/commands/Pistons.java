@@ -1,7 +1,7 @@
 package frc.team1523.robot.commands;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.team1523.robot.Robot;
 
 public class Pistons extends Command {
@@ -11,15 +11,15 @@ public class Pistons extends Command {
 
     @Override
     protected void initialize() {
-        Robot.pneumatics.resetPistons();
+        Robot.pneumatics.shiftUpdate = DoubleSolenoid.Value.kOff;
+        Robot.pneumatics.shift.set(Robot.pneumatics.shiftUpdate);
     }
 
     @Override
     protected void execute() {
-        if (Robot.oi.gamepad.getAButton()) {
-            Robot.pneumatics.togglePistons();
+        if (Robot.oi.gamepad.getAButtonPressed()) {
+            Robot.pneumatics.toggleShift();
         }
-        SmartDashboard.putBoolean("Activated:", Robot.pneumatics.activated);
     }
 
 
