@@ -3,6 +3,7 @@ package frc.team1523.robot.commands;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.team1523.robot.Robot;
+import frc.team1523.robot.subsystems.Pneumatics;
 
 public class Pistons extends Command {
     public Pistons() {
@@ -30,5 +31,6 @@ public class Pistons extends Command {
 
     @Override
     protected void end() {
+        Robot.pneumatics.resetShift();
     }
 }
