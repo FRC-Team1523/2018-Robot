@@ -5,6 +5,9 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.team1523.robot.commands.ArmCommand;
 
+/**
+ * Controls arm to lift the power cubes
+ */
 public class Arm extends Subsystem {
     private Spark ArmSpark = new Spark(0);
 

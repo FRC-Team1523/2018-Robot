@@ -8,6 +8,9 @@ import frc.team1523.robot.Robot;
 import frc.team1523.robot.RobotMap;
 import frc.team1523.robot.commands.TankDrive;
 
+/**
+ * Controls tank drive
+ */
 public class DriveTrain extends Subsystem {
 
     private Spark leftMotor = new Spark(RobotMap.DRIVE_LEFT);

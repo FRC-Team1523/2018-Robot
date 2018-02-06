@@ -3,6 +3,9 @@ package frc.team1523.robot.subsystems;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
+/**
+ * Collection of all motor encoders
+ */
 public class Encoders extends Subsystem {
     public Encoder left;
     public Encoder right;

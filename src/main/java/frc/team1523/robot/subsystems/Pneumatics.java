@@ -5,12 +5,14 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.team1523.robot.RobotMap;
 import frc.team1523.robot.commands.Pistons;
 
+/**
+ * Controls all pneumatics
+ */
 public class Pneumatics extends Subsystem {
-
-    public DoubleSolenoid shift = new DoubleSolenoid(RobotMap.P_C_M_0 ,RobotMap.SOLENOID_0 , RobotMap.SOLENOID_1);
-    public DoubleSolenoid grabber = new DoubleSolenoid(RobotMap.P_C_M_0 ,RobotMap.SOLENOID_2 , RobotMap.SOLENOID_3);
-    public DoubleSolenoid intake = new DoubleSolenoid(RobotMap.P_C_M_0 ,RobotMap.SOLENOID_4 , RobotMap.SOLENOID_5);
-    public DoubleSolenoid winchLock = new DoubleSolenoid(RobotMap.P_C_M_0 ,RobotMap.SOLENOID_6 , RobotMap.SOLENOID_7);
+    public DoubleSolenoid shift = new DoubleSolenoid(RobotMap.PCM_0,RobotMap.SOLENOID_0 , RobotMap.SOLENOID_1);
+    public DoubleSolenoid grabber = new DoubleSolenoid(RobotMap.PCM_0,RobotMap.SOLENOID_2 , RobotMap.SOLENOID_3);
+    public DoubleSolenoid intake = new DoubleSolenoid(RobotMap.PCM_0,RobotMap.SOLENOID_4 , RobotMap.SOLENOID_5);
+    public DoubleSolenoid winchLock = new DoubleSolenoid(RobotMap.PCM_0,RobotMap.SOLENOID_6 , RobotMap.SOLENOID_7);
 
     public DoubleSolenoid.Value shiftUpdate = DoubleSolenoid.Value.kOff;
     public DoubleSolenoid.Value grabberUpdate = DoubleSolenoid.Value.kOff;
