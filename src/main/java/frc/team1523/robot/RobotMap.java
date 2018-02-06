@@ -13,12 +13,12 @@ public class RobotMap {
     public static int P_C_M_0 = 0;
     public static int SOLENOID_0 = 0;
     public static int SOLENOID_1 = 1;
-   /* public static int SOLENOID_2 = 2;
+    public static int SOLENOID_2 = 2;
     public static int SOLENOID_3 = 3;
     public static int SOLENOID_4 = 4;
     public static int SOLENOID_5 = 5;
     public static int SOLENOID_6 = 6;
-    public static int SOLENOID_7 = 7;*/
+    public static int SOLENOID_7 = 7;
 
 
 
