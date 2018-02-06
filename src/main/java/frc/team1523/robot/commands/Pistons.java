@@ -28,13 +28,13 @@ public class Pistons extends Command {
             Robot.pneumatics.toggleShift();
         }
         if (Robot.oi.gamepad.getBButtonPressed()) {
-            Robot.pneumatics.toggleShift();
+            Robot.pneumatics.toggleGrabber();
         }
         if (Robot.oi.gamepad.getYButtonPressed()) {
-            Robot.pneumatics.toggleShift();
+            Robot.pneumatics.toggleIntake();
         }
         if (Robot.oi.gamepad.getXButtonPressed()) {
-            Robot.pneumatics.toggleShift();
+            Robot.pneumatics.toggleWinch();
         }
     }
 
