@@ -3,9 +3,9 @@ package frc.team1523.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.team1523.robot.Robot;
 
-public class ArmCommand extends Command {
-    public ArmCommand() {
-        requires(Robot.arm);
+public class ArmRaiseCommand extends Command {
+    public ArmRaiseCommand() {
+        requires(Robot.armRaiser);
     }
 
     @Override
@@ -18,7 +18,7 @@ public class ArmCommand extends Command {
      */
     @Override
     protected void execute() {
-        Robot.arm.move(Robot.oi.gamepad);
+        Robot.armRaiser.move(Robot.oi.gamepad);
     }
 
     @Override

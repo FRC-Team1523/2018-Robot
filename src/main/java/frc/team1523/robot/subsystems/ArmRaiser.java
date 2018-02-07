@@ -3,17 +3,17 @@ package frc.team1523.robot.subsystems;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.team1523.robot.commands.ArmCommand;
+import frc.team1523.robot.commands.ArmRaiseCommand;
 
 /**
- * Controls arm to lift the power cubes
+ * Controls armRaiser to lift the power cubes
  */
-public class Arm extends Subsystem {
+public class ArmRaiser extends Subsystem {
     private Spark ArmSpark = new Spark(0);
 
     @Override
     public void initDefaultCommand() {
-        setDefaultCommand(new ArmCommand());
+        setDefaultCommand(new ArmRaiseCommand());
     }
 
     public void move(XboxController stick) {
