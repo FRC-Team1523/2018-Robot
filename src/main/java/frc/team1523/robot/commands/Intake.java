@@ -3,7 +3,6 @@ package frc.team1523.robot.commands;
 import frc.team1523.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
-
 public class Intake extends Command {
     public Intake() {
         requires(Robot.intaker);
@@ -19,6 +18,9 @@ public class Intake extends Command {
         if (Robot.oi.gamepad.getBButtonPressed()) {
             Robot.intaker.toggle();
         }
+
+        if()
+
     }
 
     @Override

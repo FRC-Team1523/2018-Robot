@@ -20,9 +20,5 @@ public class RobotMap {
     public static int SOLENOID_6 = 6;
     public static int SOLENOID_7 = 7;
 
-
-
-
-
     public static int COMPRESSOR = 0;
 }
