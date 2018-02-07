@@ -104,9 +104,9 @@ public class InplaceDifferentialDrive extends RobotDriveBase {
         }
 
         if (ySpeed >= 0.1) {
-            leftMotorOutput += ySpeed;
+            leftMotorOutput = limit(leftMotorOutput + ySpeed);
         } else if (ySpeed <= 0.1) {
-            rightMotorOutput += -ySpeed;
+            rightMotorOutput = limit(rightMotorOutput - ySpeed);
         }
 
         m_leftMotor.set(limit(leftMotorOutput) * m_maxOutput);
