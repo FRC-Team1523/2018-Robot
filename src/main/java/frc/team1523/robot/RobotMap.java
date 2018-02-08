@@ -9,6 +9,9 @@ public class RobotMap {
     public static int DRIVE_LEFT = 3;
     public static int DRIVE_RIGHT = 2;
 
+    ///Intake motor
+    public static int INTAKE_MOTOR = 8;
+
     /// Pneumatics
     public static int PCM_0 = 0;
     public static int SOLENOID_0 = 0;
@@ -19,6 +22,7 @@ public class RobotMap {
     public static int SOLENOID_5 = 5;
     public static int SOLENOID_6 = 6;
     public static int SOLENOID_7 = 7;
+
 
     public static int COMPRESSOR = 0;
 }

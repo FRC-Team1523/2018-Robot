@@ -18,9 +18,6 @@ public class Intake extends Command {
         if (Robot.oi.gamepad.getBButtonPressed()) {
             Robot.intaker.toggle();
         }
-
-        if()
-
     }
 
     @Override
