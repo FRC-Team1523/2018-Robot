@@ -4,9 +4,10 @@ import edu.wpi.first.wpilibj.Timer;
 import frc.team1523.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
-import java.sql.Time;
-
 public class Intake extends Command {
+
+    private IntakeThread intakeThread;
+
     public Intake() {
         requires(Robot.intaker);
     }
@@ -20,7 +21,12 @@ public class Intake extends Command {
     @Override
     protected void execute() {
         if (Robot.oi.gamepad.getBButtonPressed()) {
-            Robot.intaker.activate();
+            if (intakeThread != null){
+                intakeThread.interrupt();
+                Robot.intaker.stopMotor(); 
+            }
+            intakeThread = new IntakeThread();
+
         }
     }
 

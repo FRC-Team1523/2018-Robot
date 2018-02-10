@@ -24,6 +24,8 @@ public class Intaker extends Subsystem {
     public DigitalInput leftSwitch;
     public DigitalInput rightSwitch;
 
+
+
     @Override
     public void initDefaultCommand() {
         setDefaultCommand(new Intake());
@@ -31,6 +33,9 @@ public class Intaker extends Subsystem {
         rightSwitch = new DigitalInput(1);
     }
 
+    public void startMotor(){
+        intakeMotor.set(Constants.INTAKE_SPEED);
+    }
 
     public void activate() {
         value = kForward;
@@ -41,16 +46,9 @@ public class Intaker extends Subsystem {
 
     private void update() {
         intake.set(value);
-        if (Robot.intaker.rightSwitch.get() && Robot.intaker.leftSwitch.get()) {
-            intakeMotor.set(Constants.INTAKE_SPEED);
-            Timer.delay(Time);
-            Robot.intaker.cleanUp();
-            Timer.delay(Time);
-            Robot.intaker.stopIntake();
-        }
     }
 
-    public void stopIntake() {
+    public void stopMotor() {
         intakeMotor.set(0);
     }
 
