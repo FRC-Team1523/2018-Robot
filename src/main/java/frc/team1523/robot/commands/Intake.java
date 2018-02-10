@@ -1,6 +1,5 @@
 package frc.team1523.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import frc.team1523.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 

@@ -9,7 +9,7 @@ import frc.team1523.robot.commands.WinchLock;
 import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
 
 public class WinchLocker extends Subsystem {
-    private DoubleSolenoid whinch = new DoubleSolenoid(RobotMap.PCM_0, RobotMap.SOLENOID_2, RobotMap.SOLENOID_3);
+    private DoubleSolenoid whinch = new DoubleSolenoid(RobotMap.PCM_0, RobotMap.SOLENOID_6, RobotMap.SOLENOID_7);
     private DoubleSolenoid.Value value = kOff;
 
     @Override
