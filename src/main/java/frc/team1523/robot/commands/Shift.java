@@ -16,8 +16,10 @@ public class Shift extends Command {
 
     @Override
     protected void execute() {
-        if (Robot.oi.gamepad.getYButtonPressed()) {
-            Robot.shifter.toggle();
+        if (Robot.oi.gamepad.getRawButtonPressed(3)) {
+            Robot.shifter.down();
+        } else if (Robot.oi.gamepad.getRawButtonPressed(4)) {
+            Robot.shifter.up();
         }
     }
 

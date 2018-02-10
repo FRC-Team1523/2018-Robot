@@ -31,6 +31,16 @@ public class Shifter extends Subsystem {
         update();
     }
 
+    public void up() {
+        value = DoubleSolenoid.Value.kForward;
+        update();
+    }
+
+    public void down() {
+        value = DoubleSolenoid.Value.kReverse;
+        update();
+    }
+
     private void update() {
         shifter.set(value);
     }
