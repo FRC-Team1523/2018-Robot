@@ -10,14 +10,14 @@ import frc.team1523.robot.commands.ArmRaiseCommand;
  * Controls armRaiser to lift the power cubes
  */
 public class ArmRaiser extends Subsystem {
-    public DigitalInput rotationSensorL;
-    
+    public DigitalInput rotationSensor;
+
     private Spark ArmSpark = new Spark(0);
 
     @Override
     public void initDefaultCommand() {
         setDefaultCommand(new ArmRaiseCommand());
-        rotationSensorL = new DigitalInput(3);
+        rotationSensor = new DigitalInput(3);
     }
 
     public void move(XboxController stick) {
