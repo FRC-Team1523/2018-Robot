@@ -17,7 +17,6 @@ public class Intake extends Command {
     }
 
 
-
     @Override
     protected void execute() {
         if (Robot.oi.gamepad.getBButtonPressed()) {

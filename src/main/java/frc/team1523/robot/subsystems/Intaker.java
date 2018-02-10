@@ -41,7 +41,7 @@ public class Intaker extends Subsystem {
 
     private void update() {
         intake.set(value);
-        if(Robot.intaker.rightSwitch.get() && Robot.intaker.leftSwitch.get()){
+        if (Robot.intaker.rightSwitch.get() && Robot.intaker.leftSwitch.get()) {
             intakeMotor.set(Constants.INTAKE_SPEED);
             Timer.delay(Time);
             Robot.intaker.cleanUp();
@@ -50,7 +50,7 @@ public class Intaker extends Subsystem {
         }
     }
 
-    public void stopIntake(){
+    public void stopIntake() {
         intakeMotor.set(0);
     }
 
