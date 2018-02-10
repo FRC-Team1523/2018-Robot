@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.team1523.robot.RobotMap;
 import frc.team1523.robot.commands.Shift;
 
-import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.kOff;
+import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
 
 public class Shifter extends Subsystem {
     private DoubleSolenoid shifter = new DoubleSolenoid(RobotMap.PCM_0, RobotMap.SOLENOID_0, RobotMap.SOLENOID_1);
@@ -14,39 +14,37 @@ public class Shifter extends Subsystem {
     @Override
     public void initDefaultCommand() {
         setDefaultCommand(new Shift());
+        downShift();
     }
 
     public void toggle() {
         switch (value) {
             case kOff:
-                value = DoubleSolenoid.Value.kForward;
+                update(kForward);
                 break;
             case kForward:
-                value = DoubleSolenoid.Value.kReverse;
+                update(kReverse);
                 break;
             case kReverse:
-                value = DoubleSolenoid.Value.kForward;
+                update(kForward);
                 break;
         }
-        update();
     }
 
-    public void up() {
-        value = DoubleSolenoid.Value.kForward;
-        update();
+    public void upShift() {
+        update(kForward);
     }
 
-    public void down() {
-        value = DoubleSolenoid.Value.kReverse;
-        update();
+    public void downShift() {
+        update(kReverse);
     }
 
-    private void update() {
-        shifter.set(value);
+    private void update(DoubleSolenoid.Value newValue) {
+        value = newValue;
+        shifter.set(newValue);
     }
 
     public void cleanUp() {
-        value = DoubleSolenoid.Value.kReverse;
-        update();
+        update(kReverse);
     }
 }

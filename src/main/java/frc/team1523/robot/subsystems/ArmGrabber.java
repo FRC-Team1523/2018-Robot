@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.team1523.robot.RobotMap;
 import frc.team1523.robot.commands.ArmGrab;
 
-import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.kOff;
+import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
 
 public class ArmGrabber extends Subsystem {
     private DoubleSolenoid grabber = new DoubleSolenoid(RobotMap.PCM_0, RobotMap.SOLENOID_2, RobotMap.SOLENOID_3);
@@ -19,24 +19,23 @@ public class ArmGrabber extends Subsystem {
     public void toggle() {
         switch (value) {
             case kOff:
-                value = DoubleSolenoid.Value.kForward;
+                update(kForward);
                 break;
             case kForward:
-                value = DoubleSolenoid.Value.kReverse;
+                update(kReverse);
                 break;
             case kReverse:
-                value = DoubleSolenoid.Value.kForward;
+                update(kForward);
                 break;
         }
-        update();
     }
 
-    private void update() {
+    private void update(DoubleSolenoid.Value newValue) {
+        value = newValue;
         grabber.set(value);
     }
 
     public void cleanUp() {
-        value = DoubleSolenoid.Value.kReverse;
-        update();
+        update(kReverse);
     }
 }

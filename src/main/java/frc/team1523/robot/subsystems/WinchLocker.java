@@ -6,7 +6,7 @@ import frc.team1523.robot.RobotMap;
 import frc.team1523.robot.commands.ArmGrab;
 import frc.team1523.robot.commands.WinchLock;
 
-import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.kOff;
+import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
 
 public class WinchLocker extends Subsystem {
     private DoubleSolenoid whinch = new DoubleSolenoid(RobotMap.PCM_0, RobotMap.SOLENOID_2, RobotMap.SOLENOID_3);
@@ -20,24 +20,23 @@ public class WinchLocker extends Subsystem {
     public void toggle() {
         switch (value) {
             case kOff:
-                value = DoubleSolenoid.Value.kForward;
+               update(kForward);
                 break;
             case kForward:
-                value = DoubleSolenoid.Value.kReverse;
+                update(kReverse);
                 break;
             case kReverse:
-                value = DoubleSolenoid.Value.kForward;
+                update(kForward);
                 break;
         }
-        update();
     }
 
-    private void update() {
-        whinch.set(value);
+    private void update(DoubleSolenoid.Value newValue) {
+        value = newValue;
+        whinch.set(newValue);
     }
 
     public void cleanUp() {
-        value = DoubleSolenoid.Value.kReverse;
-        update();
+        update(kReverse);
     }
 }

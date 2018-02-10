@@ -10,9 +10,7 @@ import frc.team1523.robot.Robot;
 import frc.team1523.robot.RobotMap;
 import frc.team1523.robot.commands.Intake;
 
-import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.kForward;
-import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.kOff;
-import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.kReverse;
+import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
 
 public class Intaker extends Subsystem {
 
@@ -25,7 +23,6 @@ public class Intaker extends Subsystem {
     public DigitalInput rightSwitch;
 
 
-
     @Override
     public void initDefaultCommand() {
         setDefaultCommand(new Intake());
@@ -33,18 +30,16 @@ public class Intaker extends Subsystem {
         rightSwitch = new DigitalInput(1);
     }
 
-    public void startMotor(){
+    public void startMotor() {
         intakeMotor.set(Constants.INTAKE_SPEED);
     }
 
     public void activate() {
-        value = kForward;
-        update();
+        update(kForward);
     }
 
-    public static int Time = 2;
-
-    private void update() {
+    private void update(DoubleSolenoid.Value newValue) {
+        value = newValue;
         intake.set(value);
     }
 
@@ -54,7 +49,6 @@ public class Intaker extends Subsystem {
 
 
     public void cleanUp() {
-        value = DoubleSolenoid.Value.kReverse;
-        update();
+        update(kReverse);
     }
 }
