@@ -12,9 +12,7 @@ public class ArmGrabber extends Subsystem {
     private DoubleSolenoid.Value value = kOff;
 
     @Override
-    public void initDefaultCommand() {
-        setDefaultCommand(new ArmGrab());
-    }
+    public void initDefaultCommand() { setDefaultCommand(new ArmGrab()); }
 
     public void toggle() {
         switch (value) {

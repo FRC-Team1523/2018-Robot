@@ -4,7 +4,7 @@ import frc.team1523.robot.Robot;
 
 public class IntakeThread extends Thread {
 
-    public int delay = 2;
+    public int delay = 1;
 
     /**
      * manually push piston
