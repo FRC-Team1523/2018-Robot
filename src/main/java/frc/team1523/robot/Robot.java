@@ -18,9 +18,7 @@ public class Robot extends IterativeRobot {
     public static Shifter shifter;
     public static Intaker intaker;
     public static WinchLocker winchLocker;
-    //    public static Pneumatics pneumatics;
     public static Compressor compressor;
-
 
     public static AutoDrive autoDrive;
 
@@ -36,13 +34,13 @@ public class Robot extends IterativeRobot {
         intaker = new Intaker();
         winchLocker = new WinchLocker();
 
-//        pneumatics = new Pneumatics();
         compressor = new Compressor(RobotMap.COMPRESSOR);
         compressor.setClosedLoopControl(true);
     }
 
     @Override
     public void disabledInit() {
+
     }
 
     @Override

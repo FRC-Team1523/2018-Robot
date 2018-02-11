@@ -13,7 +13,6 @@ import frc.team1523.robot.commands.Intake;
 import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
 
 public class Intaker extends Subsystem {
-
     private DoubleSolenoid intake = new DoubleSolenoid(RobotMap.PCM_0, RobotMap.SOLENOID_4, RobotMap.SOLENOID_5);
     private DoubleSolenoid.Value value = kOff;
 
@@ -26,8 +25,8 @@ public class Intaker extends Subsystem {
     @Override
     public void initDefaultCommand() {
         setDefaultCommand(new Intake());
-        leftSwitch = new DigitalInput(0);
-        rightSwitch = new DigitalInput(1);
+//        leftSwitch = new DigitalInput(0);
+//        rightSwitch = new DigitalInput(1);
     }
 
     public void startMotor() {

@@ -6,7 +6,7 @@ import java.util.Timer;
 
 public class IntakeThread extends Thread {
 
-    public int delay = 2;
+    public int delay = 2000;
 
     /**
      * manually push piston
@@ -19,11 +19,13 @@ public class IntakeThread extends Thread {
     @Override
     public void run() {
         Robot.intaker.activate();
-        if (Robot.intaker.rightSwitch.get() && Robot.intaker.leftSwitch.get()) {
-            Robot.intaker.startMotor();
-            doDelay();
-            Robot.intaker.cleanUp();
-        }
+        doDelay();
+        Robot.intaker.cleanUp();
+//        if (Robot.intaker.rightSwitch.get() && Robot.intaker.leftSwitch.get()) {
+//            Robot.intaker.startMotor();
+//            doDelay();
+//            Robot.intaker.cleanUp();
+//        }
     }
 
     public void doDelay() {

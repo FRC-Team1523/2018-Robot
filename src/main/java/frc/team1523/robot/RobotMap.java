@@ -12,6 +12,9 @@ public class RobotMap {
     ///Intake motor
     public static int INTAKE_MOTOR = 8;
 
+    /// Arm
+    public static int ARM_SPARK = 1;
+
     /// Pneumatics
     public static int PCM_0 = 0;
     public static int SOLENOID_0 = 0;
@@ -25,4 +28,8 @@ public class RobotMap {
 
 
     public static int COMPRESSOR = 0;
+
+    /// Gamepad bumpers analogs
+    public static int BUMPER_ANALOG_LEFT = 2;
+    public static int BUMPER_ANALOG_RIGHT = 3;
 }
