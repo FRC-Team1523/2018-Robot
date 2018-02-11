@@ -2,8 +2,6 @@ package frc.team1523.robot.commands;
 
 import frc.team1523.robot.Robot;
 
-import java.util.Timer;
-
 public class IntakeThread extends Thread {
 
     public int delay = 2000;

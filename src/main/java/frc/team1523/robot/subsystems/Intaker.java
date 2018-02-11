@@ -3,10 +3,8 @@ package frc.team1523.robot.subsystems;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.team1523.robot.Constants;
-import frc.team1523.robot.Robot;
 import frc.team1523.robot.RobotMap;
 import frc.team1523.robot.commands.Intake;
 
