@@ -8,7 +8,7 @@ import frc.team1523.robot.commands.ArmGrab;
 import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
 
 public class ArmGrabber extends Subsystem {
-    private DoubleSolenoid grabber = new DoubleSolenoid(RobotMap.PCM_0, RobotMap.SOLENOID_2, RobotMap.SOLENOID_3);
+    private DoubleSolenoid grabber = new DoubleSolenoid(RobotMap.PCM_0, RobotMap.GRABBER_A, RobotMap.GRABBER_B);
     private DoubleSolenoid.Value value = kOff;
 
     @Override

@@ -20,14 +20,14 @@ public class RobotMap {
 
     /// Pneumatics
     public static int PCM_0 = 0;
-    public static int SOLENOID_0 = 0;
-    public static int SOLENOID_1 = 1;
-    public static int SOLENOID_2 = 2;
-    public static int SOLENOID_3 = 3;
-    public static int SOLENOID_4 = 4;
-    public static int SOLENOID_5 = 5;
-    public static int SOLENOID_6 = 6;
-    public static int SOLENOID_7 = 7;
+    public static int SHIFTER_A = 0;
+    public static int SHIFTER_B = 1;
+    public static int GRABBER_A = 2;
+    public static int GRABBER_B = 3;
+    public static int INTAKE_A = 4;
+    public static int INTAKE_B = 5;
+    public static int WINCH_LOCK_A = 6;
+    public static int WINCH_LOCK_B = 7;
 
 
     public static int COMPRESSOR = 0;

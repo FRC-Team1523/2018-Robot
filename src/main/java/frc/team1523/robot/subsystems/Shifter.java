@@ -8,7 +8,7 @@ import frc.team1523.robot.commands.Shift;
 import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
 
 public class Shifter extends Subsystem {
-    private DoubleSolenoid shifter = new DoubleSolenoid(RobotMap.PCM_0, RobotMap.SOLENOID_0, RobotMap.SOLENOID_1);
+    private DoubleSolenoid shifter = new DoubleSolenoid(RobotMap.PCM_0, RobotMap.SHIFTER_A, RobotMap.SHIFTER_B);
     private DoubleSolenoid.Value value = kOff;
 
     @Override

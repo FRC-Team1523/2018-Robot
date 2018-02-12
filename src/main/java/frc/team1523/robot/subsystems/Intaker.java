@@ -11,7 +11,7 @@ import frc.team1523.robot.commands.Intake;
 import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
 
 public class Intaker extends Subsystem {
-    private DoubleSolenoid intake = new DoubleSolenoid(RobotMap.PCM_0, RobotMap.SOLENOID_4, RobotMap.SOLENOID_5);
+    private DoubleSolenoid intake = new DoubleSolenoid(RobotMap.PCM_0, RobotMap.INTAKE_A, RobotMap.INTAKE_B);
     private DoubleSolenoid.Value value = kOff;
 
     private Spark intakeMotor = new Spark(RobotMap.INTAKE_MOTOR);
