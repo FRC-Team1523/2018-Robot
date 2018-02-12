@@ -9,11 +9,14 @@ public class RobotMap {
     public static int DRIVE_LEFT = 3;
     public static int DRIVE_RIGHT = 2;
 
-    ///Intake motor
+    /// Intake motor
     public static int INTAKE_MOTOR = 8;
 
     /// Arm
     public static int ARM_SPARK = 1;
+
+    /// Winch motor
+    public static int WINCH_SPARK = 4;
 
     /// Pneumatics
     public static int PCM_0 = 0;
@@ -29,7 +32,7 @@ public class RobotMap {
 
     public static int COMPRESSOR = 0;
 
-    /// Gamepad bumpers analogs
+    /// Gamepad bumpers analog
     public static int BUMPER_ANALOG_LEFT = 2;
     public static int BUMPER_ANALOG_RIGHT = 3;
 }

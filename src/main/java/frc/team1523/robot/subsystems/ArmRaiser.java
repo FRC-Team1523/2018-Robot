@@ -27,9 +27,9 @@ public class ArmRaiser extends Subsystem {
         // Right up
         double rightBumper = gamepad.getRawAxis(RobotMap.BUMPER_ANALOG_RIGHT);
         double leftBumper = gamepad.getRawAxis(RobotMap.BUMPER_ANALOG_LEFT);
-        if (rightBumper >= Constants.ANGALOG_BUMPER_DEADBAND) {
+        if (rightBumper >= Constants.ANALOG_BUMPER_DEADBAND) {
             armSpark.set(-rightBumper);
-        } else if (leftBumper >= Constants.ANGALOG_BUMPER_DEADBAND) {
+        } else if (leftBumper >= Constants.ANALOG_BUMPER_DEADBAND) {
             armSpark.set(leftBumper);
         } else {
             armSpark.set(0.0);

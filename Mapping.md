@@ -8,8 +8,11 @@
 ## Gamepad
 
 * Analog Bumpers
-    * Right - Up
-    * Left - Down
+    * Right - Arm Up
+    * Left - Arm Down
+* Bumpers
+    * Right - Winch in / up
+    * Left - Winch out / down
 * Letters
     * X - Toggle grabbers
     * B - Box intake
