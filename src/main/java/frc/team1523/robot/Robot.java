@@ -36,6 +36,8 @@ public class Robot extends IterativeRobot {
 
         compressor = new Compressor(RobotMap.COMPRESSOR);
         compressor.setClosedLoopControl(true);
+
+        CameraServer.getInstance().startAutomaticCapture();
     }
 
     @Override
