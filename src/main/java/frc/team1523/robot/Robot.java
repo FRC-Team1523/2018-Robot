@@ -33,6 +33,7 @@ public class Robot extends IterativeRobot {
         armGrabber = new ArmGrabber();
         shifter = new Shifter();
         intaker = new Intaker();
+        winchController = new WinchController();
         winchLocker = new WinchLocker();
 
         compressor = new Compressor(RobotMap.COMPRESSOR);

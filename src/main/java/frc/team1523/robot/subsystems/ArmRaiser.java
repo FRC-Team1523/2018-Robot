@@ -20,7 +20,7 @@ public class ArmRaiser extends Subsystem {
     @Override
     public void initDefaultCommand() {
         setDefaultCommand(new ArmRaiseCommand());
-        rotationSensor = new DigitalInput(3);
+//        rotationSensor = new DigitalInput(3);
     }
 
     public void move(XboxController gamepad) {
