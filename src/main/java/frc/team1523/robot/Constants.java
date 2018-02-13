@@ -10,4 +10,6 @@ public class Constants {
 
     public static double ANALOG_BUMPER_DEADBAND = 0.03;
     public static double WINCH_SPEED = 0.5;
+
+    public static double TURN_MULTIPLIER = 0.75;
 }

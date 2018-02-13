@@ -44,6 +44,10 @@ public class Shifter extends Subsystem {
         shifter.set(newValue);
     }
 
+    public boolean isHigh() {
+        return value == kForward;
+    }
+
     public void cleanUp() {
         update(kReverse);
     }

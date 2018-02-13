@@ -17,7 +17,6 @@ public class WinchController extends Subsystem {
     }
 
     public void move(XboxController gamepad) {
-        System.out.println(gamepad.getBumper(GenericHID.Hand.kRight));
         // Right up
         boolean rightBumper = gamepad.getBumper(GenericHID.Hand.kRight);
         boolean leftBumper = gamepad.getBumper(GenericHID.Hand.kLeft);
