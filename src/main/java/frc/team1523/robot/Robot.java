@@ -19,7 +19,8 @@ public class Robot extends IterativeRobot {
     public static Intaker intaker;
     public static WinchLocker winchLocker;
     public static WinchController winchController;
-    public static Compressor compressor;
+    @SuppressWarnings("FieldCanBeLocal")
+    private static Compressor compressor;
 
     public static AutoDrive autoDrive;
 

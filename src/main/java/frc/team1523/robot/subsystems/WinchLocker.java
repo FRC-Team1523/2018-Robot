@@ -9,7 +9,7 @@ import frc.team1523.robot.commands.WinchLock;
 import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
 
 public class WinchLocker extends Subsystem {
-    private DoubleSolenoid whinch = new DoubleSolenoid(RobotMap.PCM_0, RobotMap.WINCH_LOCK_A, RobotMap.WINCH_LOCK_B);
+    private DoubleSolenoid winch = new DoubleSolenoid(RobotMap.PCM_0, RobotMap.WINCH_LOCK_A, RobotMap.WINCH_LOCK_B);
     private DoubleSolenoid.Value value = kOff;
 
     @Override
@@ -33,7 +33,7 @@ public class WinchLocker extends Subsystem {
 
     private void update(DoubleSolenoid.Value newValue) {
         value = newValue;
-        whinch.set(newValue);
+        winch.set(newValue);
     }
 
     public void cleanUp() {

@@ -11,8 +11,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder;
 
 
 public class InplaceDifferentialDrive extends RobotDriveBase {
-    public static final double kDefaultQuickStopThreshold = 0.2;
-    public static final double kDefaultQuickStopAlpha = 0.1;
+    private static final double kDefaultQuickStopThreshold = 0.2;
+    private static final double kDefaultQuickStopAlpha = 0.1;
 
     private static int instances = 0;
 
@@ -59,7 +59,7 @@ public class InplaceDifferentialDrive extends RobotDriveBase {
      * @param squaredInputs If set, decreases the input sensitivity at low speeds.
      */
     @SuppressWarnings("ParameterName")
-    public void inplaceDrive(double xSpeed, double zRotation, boolean squaredInputs, double ySpeed, boolean quickTurn) {
+    private void inplaceDrive(double xSpeed, double zRotation, boolean squaredInputs, double ySpeed, boolean quickTurn) {
         if (!m_reported) {
             HAL.report(tResourceType.kResourceType_RobotDrive, 2, tInstances.kRobotDrive_ArcadeStandard);
             m_reported = true;
@@ -137,7 +137,7 @@ public class InplaceDifferentialDrive extends RobotDriveBase {
      * @param squaredInputs If set, decreases the input sensitivity at low speeds.
      */
     @SuppressWarnings("ParameterName")
-    public void arcadeDrive(double xSpeed, double zRotation, boolean squaredInputs) {
+    private void arcadeDrive(double xSpeed, double zRotation, boolean squaredInputs) {
         if (!m_reported) {
             HAL.report(tResourceType.kResourceType_RobotDrive, 2, tInstances.kRobotDrive_ArcadeStandard);
             m_reported = true;
@@ -292,7 +292,7 @@ public class InplaceDifferentialDrive extends RobotDriveBase {
      *                      positive.
      * @param squaredInputs If set, decreases the input sensitivity at low speeds.
      */
-    public void tankDrive(double leftSpeed, double rightSpeed, boolean squaredInputs) {
+    private void tankDrive(double leftSpeed, double rightSpeed, boolean squaredInputs) {
         if (!m_reported) {
             HAL.report(tResourceType.kResourceType_RobotDrive, 2, tInstances.kRobotDrive_Tank);
             m_reported = true;

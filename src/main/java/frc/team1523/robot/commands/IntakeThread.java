@@ -2,9 +2,7 @@ package frc.team1523.robot.commands;
 
 import frc.team1523.robot.Robot;
 
-public class IntakeThread extends Thread {
-
-    public int delay = 2000;
+class IntakeThread extends Thread {
 
     /**
      * manually push piston
@@ -26,8 +24,9 @@ public class IntakeThread extends Thread {
 //        }
     }
 
-    public void doDelay() {
+    private void doDelay() {
         try {
+            int delay = 2000;
             Thread.sleep(delay);
         } catch (Exception e) {
             e.printStackTrace();

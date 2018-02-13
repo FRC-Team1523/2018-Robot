@@ -3,7 +3,6 @@ package frc.team1523.robot.subsystems;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.team1523.robot.Constants;
 import frc.team1523.robot.InplaceDifferentialDrive;
 import frc.team1523.robot.Robot;

@@ -12,7 +12,6 @@ import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
 
 public class Intaker extends Subsystem {
     private DoubleSolenoid intake = new DoubleSolenoid(RobotMap.PCM_0, RobotMap.INTAKE_A, RobotMap.INTAKE_B);
-    private DoubleSolenoid.Value value = kOff;
 
     private Spark intakeMotor = new Spark(RobotMap.INTAKE_MOTOR);
 
@@ -36,8 +35,7 @@ public class Intaker extends Subsystem {
     }
 
     private void update(DoubleSolenoid.Value newValue) {
-        value = newValue;
-        intake.set(value);
+        intake.set(newValue);
     }
 
     public void stopMotor() {
