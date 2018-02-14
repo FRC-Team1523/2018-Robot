@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.team1523.robot.commands.AutoDrive;
+import frc.team1523.robot.commands.PCMStickyClearCommand;
 import frc.team1523.robot.subsystems.*;
 
 
@@ -20,7 +21,7 @@ public class Robot extends IterativeRobot {
     public static WinchLocker winchLocker;
     public static WinchController winchController;
     @SuppressWarnings("FieldCanBeLocal")
-    private static Compressor compressor;
+    public static Compressor compressor;
 
     public static AutoDrive autoDrive;
 
@@ -39,6 +40,8 @@ public class Robot extends IterativeRobot {
 
         compressor = new Compressor(RobotMap.COMPRESSOR);
         compressor.setClosedLoopControl(true);
+
+        SmartDashboard.putData(new PCMStickyClearCommand());
 
         CameraServer.getInstance().startAutomaticCapture(0);
     }
