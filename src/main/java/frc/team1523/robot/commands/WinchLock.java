@@ -16,8 +16,9 @@ public class WinchLock extends Command {
 
     @Override
     protected void execute() {
-        if (Robot.oi.gamepad.getAButtonPressed()) {
-            Robot.winchLocker.toggle();
+        if (Robot.oi.joystick.getRawButton(7)) {
+//            Robot.winchLocker.toggle();
+            Robot.winchLocker.setLocked();
         }
     }
 
