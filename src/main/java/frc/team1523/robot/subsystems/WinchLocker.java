@@ -20,7 +20,7 @@ public class WinchLocker extends Subsystem {
     public void toggle() {
         switch (value) {
             case kOff:
-               update(kForward);
+                update(kForward);
                 break;
             case kForward:
                 update(kReverse);
@@ -29,6 +29,10 @@ public class WinchLocker extends Subsystem {
                 update(kForward);
                 break;
         }
+    }
+
+    public void setLocked() {
+        update(kForward);
     }
 
     private void update(DoubleSolenoid.Value newValue) {

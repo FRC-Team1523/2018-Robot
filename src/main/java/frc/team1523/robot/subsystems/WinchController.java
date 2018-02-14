@@ -1,6 +1,7 @@
 package frc.team1523.robot.subsystems;
 
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -16,14 +17,15 @@ public class WinchController extends Subsystem {
         setDefaultCommand(new Winch());
     }
 
-    public void move(XboxController gamepad) {
+    public void move(Joystick joystick, XboxController gamepad) {
         // Right up
+        boolean trigger = joystick.getRawButton(1);
         boolean rightBumper = gamepad.getBumper(GenericHID.Hand.kRight);
         boolean leftBumper = gamepad.getBumper(GenericHID.Hand.kLeft);
-        if (rightBumper) {
-            winchSpark.set(Constants.WINCH_SPEED);
-        } else if (leftBumper) {
+        if (trigger) { // up
             winchSpark.set(-Constants.WINCH_SPEED);
+        } else if (leftBumper) { // down
+            winchSpark.set(Constants.WINCH_SPEED);
         } else {
             winchSpark.set(0.0);
         }
