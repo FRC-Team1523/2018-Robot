@@ -3,19 +3,19 @@ package frc.team1523.robot.subsystems;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.team1523.robot.Constants;
 import frc.team1523.robot.InplaceDifferentialDrive;
 import frc.team1523.robot.Robot;
-import frc.team1523.robot.RobotMap;
 import frc.team1523.robot.commands.TankDrive;
+import static frc.team1523.robot.RobotMap.*;
+import static frc.team1523.robot.Constants.*;
 
 /**
  * Controls tank drive
  */
 public class DriveTrain extends Subsystem {
 
-    private Spark leftMotor = new Spark(RobotMap.DRIVE_LEFT);
-    private Spark rightMotor = new Spark(RobotMap.DRIVE_RIGHT);
+    private Spark leftMotor = new Spark(DRIVE_LEFT);
+    private Spark rightMotor = new Spark(DRIVE_RIGHT);
 
     //    private DifferentialDrive drive = new DifferentialDrive(leftMotor, rightMotor);
     private InplaceDifferentialDrive drive = new InplaceDifferentialDrive(leftMotor, rightMotor);
@@ -32,7 +32,7 @@ public class DriveTrain extends Subsystem {
      */
     public void drive(Joystick stick) {
         if (Robot.shifter.isHigh()) {
-            drive.arcadeDrive(stick.getY(), -(stick.getZ() * Constants.TURN_MULTIPLIER));
+            drive.arcadeDrive(stick.getY(), -(stick.getZ() * TURN_MULTIPLIER));
         } else {
             drive.arcadeDrive(stick.getY(), -(stick.getZ()));
         }
@@ -45,9 +45,6 @@ public class DriveTrain extends Subsystem {
         rightMotor.set(-rightSpeed);
     }
 
-    /**
-     * Sets drive motor encoder distances to zero
-     */
     public void reset() {
         Robot.encoders.left.reset();
         Robot.encoders.right.reset();

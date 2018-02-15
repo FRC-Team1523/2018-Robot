@@ -26,8 +26,7 @@ class IntakeThread extends Thread {
 
     private void doDelay() {
         try {
-            int delay = 2000;
-            Thread.sleep(delay);
+            Thread.sleep(2000);
         } catch (Exception e) {
             e.printStackTrace();
         }

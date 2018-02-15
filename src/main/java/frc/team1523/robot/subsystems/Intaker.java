@@ -4,16 +4,16 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.team1523.robot.Constants;
-import frc.team1523.robot.RobotMap;
+import static frc.team1523.robot.Constants.*;
+import static frc.team1523.robot.RobotMap.*;
 import frc.team1523.robot.commands.Intake;
 
 import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
 
 public class Intaker extends Subsystem {
-    private DoubleSolenoid intake = new DoubleSolenoid(RobotMap.PCM_0, RobotMap.INTAKE_A, RobotMap.INTAKE_B);
+    private DoubleSolenoid intake = new DoubleSolenoid(PCM_0, INTAKE_A, INTAKE_B);
 
-    private Spark intakeMotor = new Spark(RobotMap.INTAKE_MOTOR);
+    private Spark intakeMotor = new Spark(INTAKE_MOTOR);
 
     public DigitalInput leftSwitch;
     public DigitalInput rightSwitch;
@@ -27,7 +27,7 @@ public class Intaker extends Subsystem {
     }
 
     public void startMotor() {
-        intakeMotor.set(Constants.INTAKE_SPEED);
+        intakeMotor.set(INTAKE_SPEED);
     }
 
     public void activate() {

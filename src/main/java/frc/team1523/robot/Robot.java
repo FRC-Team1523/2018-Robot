@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.team1523.robot.commands.AutoDrive;
 import frc.team1523.robot.commands.PCMStickyClearCommand;
 import frc.team1523.robot.subsystems.*;
+import static frc.team1523.robot.RobotMap.*;
 
 
 public class Robot extends IterativeRobot {
@@ -38,7 +39,7 @@ public class Robot extends IterativeRobot {
         winchController = new WinchController();
         winchLocker = new WinchLocker();
 
-        compressor = new Compressor(RobotMap.COMPRESSOR);
+        compressor = new Compressor(COMPRESSOR);
         compressor.setClosedLoopControl(true);
 
         SmartDashboard.putData(new PCMStickyClearCommand());

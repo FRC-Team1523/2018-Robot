@@ -9,11 +9,6 @@ public class Winch extends Command {
     }
 
     @Override
-    protected void initialize() {
-
-    }
-
-    @Override
     protected void execute() {
         Robot.winchController.move(Robot.oi.joystick, Robot.oi.gamepad);
     }

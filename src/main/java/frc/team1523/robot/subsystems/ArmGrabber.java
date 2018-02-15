@@ -2,13 +2,13 @@ package frc.team1523.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.team1523.robot.RobotMap;
 import frc.team1523.robot.commands.ArmGrab;
+import static frc.team1523.robot.RobotMap.*;
 
 import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
 
 public class ArmGrabber extends Subsystem {
-    private DoubleSolenoid grabber = new DoubleSolenoid(RobotMap.PCM_0, RobotMap.GRABBER_A, RobotMap.GRABBER_B);
+    private DoubleSolenoid grabber = new DoubleSolenoid(PCM_0, GRABBER_A, GRABBER_B);
     private DoubleSolenoid.Value value = kOff;
 
     @Override

@@ -12,4 +12,6 @@ public class Constants {
     public static double WINCH_SPEED = 1.0;
 
     public static double TURN_MULTIPLIER = 0.75;
+
+    public static double ARM_MUTLIPLIER = 0.8;
 }

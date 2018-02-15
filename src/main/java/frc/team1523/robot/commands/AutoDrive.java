@@ -7,10 +7,8 @@ import frc.team1523.robot.Robot;
  * Automatically drive the robot a given distance at a given speed
  */
 public class AutoDrive extends Command {
-
     private double distance;
     private double speed;
-
     private boolean finished;
 
     public AutoDrive(double speed, double distance) {
@@ -58,7 +56,7 @@ public class AutoDrive extends Command {
     // Called once after isFinished returns true
     protected void end() {
         Robot.driveTrain.stopMotors();
-//        Robot.driveTrain.reset();
+        Robot.driveTrain.reset();
     }
 
     // Called when another command which requires one or more of the same

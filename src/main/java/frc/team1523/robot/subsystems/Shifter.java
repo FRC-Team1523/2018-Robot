@@ -2,13 +2,13 @@ package frc.team1523.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.team1523.robot.RobotMap;
+import static frc.team1523.robot.RobotMap.*;
 import frc.team1523.robot.commands.Shift;
 
 import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
 
 public class Shifter extends Subsystem {
-    private DoubleSolenoid shifter = new DoubleSolenoid(RobotMap.PCM_0, RobotMap.SHIFTER_A, RobotMap.SHIFTER_B);
+    private DoubleSolenoid shifter = new DoubleSolenoid(PCM_0, SHIFTER_A, SHIFTER_B);
     private DoubleSolenoid.Value value = kOff;
 
     @Override

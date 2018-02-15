@@ -15,5 +15,6 @@ public class Encoders extends Subsystem {
         left = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
         right = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
         right.setReverseDirection(true);
+        // TODO: Set distance per pulse value
     }
 }
