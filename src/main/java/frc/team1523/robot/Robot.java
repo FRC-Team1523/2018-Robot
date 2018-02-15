@@ -1,12 +1,14 @@
 
 package frc.team1523.robot;
 
+import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.team1523.robot.commands.AutoDrive;
 import frc.team1523.robot.commands.PCMStickyClearCommand;
 import frc.team1523.robot.subsystems.*;
+
 import static frc.team1523.robot.RobotMap.*;
 
 
@@ -23,6 +25,8 @@ public class Robot extends IterativeRobot {
     public static WinchController winchController;
     @SuppressWarnings("FieldCanBeLocal")
     public static Compressor compressor;
+
+    public static AHRS ahrs;
 
     public static AutoDrive autoDrive;
 
@@ -45,6 +49,12 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData(new PCMStickyClearCommand());
 
         CameraServer.getInstance().startAutomaticCapture(0);
+
+        try {
+            ahrs = new AHRS(SPI.Port.kMXP);
+        } catch (RuntimeException ex) {
+            DriverStation.reportError("Error instantiating navX MXP:  " + ex.getMessage(), true);
+        }
     }
 
     @Override
