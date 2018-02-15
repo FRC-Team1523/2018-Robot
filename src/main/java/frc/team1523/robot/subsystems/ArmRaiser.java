@@ -29,7 +29,7 @@ public class ArmRaiser extends Subsystem {
         if (rightBumper >= Constants.ANALOG_BUMPER_DEADBAND) {
             armSpark.set(-((rightBumper * rightBumper) * 0.8));
         } else if (leftBumper >= Constants.ANALOG_BUMPER_DEADBAND) {
-            armSpark.set((leftBumper * rightBumper) * 0.8);
+            armSpark.set((leftBumper * leftBumper) * 0.8);
         } else {
             armSpark.set(0.0);
         }

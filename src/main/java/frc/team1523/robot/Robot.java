@@ -61,7 +61,6 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Encoder 1", encoders.left.getDistance());
         SmartDashboard.putNumber("Encoder 2", encoders.right.getDistance());
-//        System.out.println(Robot.oi.joystick.getRawButton(7));
     }
 
     @Override
