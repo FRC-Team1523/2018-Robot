@@ -84,8 +84,8 @@ public class Robot extends IterativeRobot {
     @Override
     public void robotPeriodic() {
         Scheduler.getInstance().run();
-        SmartDashboard.putNumber("Encoder 1", encoders.left.getDistance());
-        SmartDashboard.putNumber("Encoder 2", encoders.right.getDistance());
+        SmartDashboard.putNumber("Encoder Left", encoders.left.getDistance());
+        SmartDashboard.putNumber("Encoder Right", encoders.right.getDistance());
 //        System.out.println(counter.getDistance());
 //        SmartDashboard.putNumber("Get", counter.get());
 //        SmartDashboard.putNumber("Period", counter.getPeriod());

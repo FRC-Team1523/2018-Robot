@@ -14,6 +14,7 @@
 * Bumpers
     * Left - Winch out / down
 * Letters
-    * X - Toggle grabbers
+    * X - Open grabbers
+    * Y - Close grabbers
     * B - Box intake
     * A - Winch lock
