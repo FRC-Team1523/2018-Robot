@@ -22,9 +22,9 @@ public class WinchController extends Subsystem {
         boolean trigger = joystick.getRawButton(1);
         boolean rightBumper = gamepad.getBumper(GenericHID.Hand.kRight);
         boolean leftBumper = gamepad.getBumper(GenericHID.Hand.kLeft);
-        if (trigger) { // up
+        if (leftBumper) { // down
             winchSpark.set(-WINCH_SPEED);
-        } else if (leftBumper) { // down
+        } else if (trigger) { // up
             winchSpark.set(WINCH_SPEED);
         } else {
             winchSpark.set(0.0);
