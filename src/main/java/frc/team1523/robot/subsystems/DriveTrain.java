@@ -1,5 +1,6 @@
 package frc.team1523.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -41,8 +42,8 @@ public class DriveTrain extends Subsystem {
     }
 
     public void drive(double leftSpeed, double rightSpeed) {
-        leftMotor.set(leftSpeed);
-        rightMotor.set(-rightSpeed);
+        leftMotor.set(-leftSpeed);
+        rightMotor.set(rightSpeed);
     }
 
     public void reset() {

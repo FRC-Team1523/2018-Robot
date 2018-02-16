@@ -28,6 +28,14 @@ public class ArmGrabber extends Subsystem {
         }
     }
 
+    public void grab() {
+        update(kForward);
+    }
+
+    public void release() {
+        update(kReverse);
+    }
+
     private void update(DoubleSolenoid.Value newValue) {
         value = newValue;
         grabber.set(value);

@@ -1,6 +1,8 @@
 
 package frc.team1523.robot;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Command;
@@ -11,6 +13,7 @@ import frc.team1523.robot.commands.AutoDrive;
 import frc.team1523.robot.commands.PCMStickyClearCommand;
 import frc.team1523.robot.subsystems.*;
 
+import static frc.team1523.robot.Constants.*;
 import static frc.team1523.robot.RobotMap.*;
 
 
@@ -29,9 +32,6 @@ public class Robot extends IterativeRobot {
     public static Compressor compressor;
 
     public static AHRS ahrs;
-
-    public static AutoDrive autoDrive;
-
 
     Command autonomousCommand;
     SendableChooser<Command> chooser = new SendableChooser<>();
@@ -62,10 +62,9 @@ public class Robot extends IterativeRobot {
             DriverStation.reportError("Error instantiating navX MXP:  " + ex.getMessage(), true);
         }
 
-        chooser.addObject("Drive forward", new AutoDrive(0.5, 10000));
+        chooser.addObject("Drive forward", new AutoDrive(0.25, 500));
         chooser.addDefault("Nothing", null);
         SmartDashboard.putData("Auto", chooser);
-
     }
 
     @Override
@@ -83,12 +82,15 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Encoder 1", encoders.left.getDistance());
         SmartDashboard.putNumber("Encoder 2", encoders.right.getDistance());
+//        System.out.println(counter.getDistance());
+//        SmartDashboard.putNumber("Get", counter.get());
+//        SmartDashboard.putNumber("Period", counter.getPeriod());
+//        SmartDashboard.putNumber("Distance", counter.getDistance());
+//        SmartDashboard.putNumber("Rate", counter.getRate());
     }
 
     @Override
     public void autonomousInit() {
-//        autoDrive = new AutoDrive(0.25, 10000);
-//        autoDrive.start();
         autonomousCommand = chooser.getSelected();
         if (autonomousCommand != null) {
             autonomousCommand.start();
