@@ -1,5 +1,6 @@
 package frc.team1523.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.team1523.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -24,6 +25,7 @@ public class Intake extends Command {
                 Robot.intaker.stopMotor();
             }
             intakeThread = new IntakeThread();
+            intakeThread.run();
         }
     }
 

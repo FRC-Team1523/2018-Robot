@@ -3,7 +3,9 @@ package frc.team1523.robot;
 
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.team1523.robot.commands.AutoDrive;
 import frc.team1523.robot.commands.PCMStickyClearCommand;
@@ -31,6 +33,10 @@ public class Robot extends IterativeRobot {
     public static AutoDrive autoDrive;
 
 
+    Command autonomousCommand;
+    SendableChooser<Command> chooser = new SendableChooser<>();
+
+
     @Override
     public void robotInit() {
         oi = new OI();
@@ -55,6 +61,11 @@ public class Robot extends IterativeRobot {
         } catch (RuntimeException ex) {
             DriverStation.reportError("Error instantiating navX MXP:  " + ex.getMessage(), true);
         }
+
+        chooser.addObject("Drive forward", new AutoDrive(0.5, 10000));
+        chooser.addDefault("Nothing", null);
+        SmartDashboard.putData("Auto", chooser);
+
     }
 
     @Override
@@ -76,12 +87,12 @@ public class Robot extends IterativeRobot {
 
     @Override
     public void autonomousInit() {
-//        autoDrive = new AutoDrive(0.25, 5 * Constants.WHEEL_INCH);
+//        autoDrive = new AutoDrive(0.25, 10000);
 //        autoDrive.start();
-//        autonomousCommand = chooser.getSelected();
-//        if (autonomousCommand != null) {
-//            autonomousCommand.start();
-//        }
+        autonomousCommand = chooser.getSelected();
+        if (autonomousCommand != null) {
+            autonomousCommand.start();
+        }
     }
 
     /**

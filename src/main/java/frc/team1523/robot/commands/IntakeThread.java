@@ -31,6 +31,4 @@ class IntakeThread extends Thread {
             e.printStackTrace();
         }
     }
-
-
 }
