@@ -9,8 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.team1523.robot.commands.AutoDrive;
-import frc.team1523.robot.commands.PCMStickyClearCommand;
+import frc.team1523.robot.commands.*;
 import frc.team1523.robot.subsystems.*;
 
 import static frc.team1523.robot.Constants.*;
@@ -63,6 +62,11 @@ public class Robot extends IterativeRobot {
         }
 
         chooser.addObject("Drive forward", new AutoDrive(0.25, 500));
+        chooser.addObject("Grab open", new AutoGrab(AutoGrab.GrabState.kRelease));
+        chooser.addObject("Grab close", new AutoGrab(AutoGrab.GrabState.kGrab));
+        chooser.addObject("Turn 45", new AutoTurn(0.25, 45));
+        chooser.addObject("Turn 90", new AutoTurn(0.25, 90));
+        chooser.addObject("Turn 360", new AutoTurn(0.25, 360));
         chooser.addDefault("Nothing", null);
         SmartDashboard.putData("Auto", chooser);
     }
