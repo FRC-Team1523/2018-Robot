@@ -15,6 +15,7 @@ public class WinchLocker extends Subsystem {
     @Override
     public void initDefaultCommand() {
         setDefaultCommand(new WinchLock());
+        update(kForward);
     }
 
     public void toggle() {
@@ -32,7 +33,7 @@ public class WinchLocker extends Subsystem {
     }
 
     public void setLocked() {
-        update(kForward);
+        update(kReverse);
     }
 
     private void update(DoubleSolenoid.Value newValue) {
@@ -41,6 +42,6 @@ public class WinchLocker extends Subsystem {
     }
 
     public void cleanUp() {
-        update(kReverse);
+        update(kForward);
     }
 }

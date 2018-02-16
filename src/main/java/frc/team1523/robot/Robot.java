@@ -95,6 +95,7 @@ public class Robot extends IterativeRobot {
 
     @Override
     public void autonomousInit() {
+//        autonomousCommand.start();
         autonomousCommand = chooser.getSelected();
         if (autonomousCommand != null) {
             autonomousCommand.start();
