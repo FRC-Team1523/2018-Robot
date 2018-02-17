@@ -62,12 +62,13 @@ public class Robot extends IterativeRobot {
             DriverStation.reportError("Error instantiating navX MXP:  " + ex.getMessage(), true);
         }
 
-        chooser.addObject("Drive forward", new AutoDrive(0.25, 500));
+        chooser.addObject("Drive forward", new AutoDrive(0.55, 650));
         chooser.addObject("Grab open", new AutoGrab(AutoGrab.GrabState.kRelease));
         chooser.addObject("Grab close", new AutoGrab(AutoGrab.GrabState.kGrab));
         chooser.addObject("Turn 45", new AutoTurn(0.25, 45));
         chooser.addObject("Turn 90", new AutoTurn(0.25, 90));
         chooser.addObject("Turn 360", new AutoTurn(0.25, 360));
+        chooser.addObject("Sequence", new Sequential());
         chooser.addDefault("Nothing", null);
         SmartDashboard.putData("Auto", chooser);
     }
