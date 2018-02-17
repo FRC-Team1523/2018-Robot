@@ -87,8 +87,12 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Encoder Left", encoders.left.getDistance());
         SmartDashboard.putNumber("Encoder Right", encoders.right.getDistance());
+
         SmartDashboard.putNumber("Angle", Robot.ahrs.getAngle());
-//        System.out.println(counter.getDistance());
+//        SmartDashboard.putNumber("Pitch", Robot.ahrs.getPitch());
+//        SmartDashboard.putNumber("Roll", Robot.ahrs.getRoll());
+//        System.out.println(Robot.ahrs.getRoll());
+//        //        System.out.println(counter.getDistance());
 //        SmartDashboard.putNumber("Get", counter.get());
 //        SmartDashboard.putNumber("Period", counter.getPeriod());
 //        SmartDashboard.putNumber("Distance", counter.getDistance());

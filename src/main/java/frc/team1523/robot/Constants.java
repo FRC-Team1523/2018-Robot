@@ -16,4 +16,6 @@ public class Constants {
     public static double ARM_MUTLIPLIER = 0.8;
 
     public static double AUTO_TURN_SPEED = 0.5;
+
+    public static double REDUCE_MULTIPLIER = 0.15;
 }

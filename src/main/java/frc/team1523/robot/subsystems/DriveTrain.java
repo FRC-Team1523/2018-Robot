@@ -34,10 +34,18 @@ public class DriveTrain extends Subsystem {
      * @param stick the input joystick
      */
     public void drive(Joystick stick) {
+        double y = stick.getY();
+        double z = stick.getZ();
+        double squared = squared(y);
+
+        if (stick.getRawButtonPressed(2)) {
+            squared *= REDUCE_MULTIPLIER;
+        }
+
         if (Robot.shifter.isHigh()) {
-            drive.arcadeDrive(squared(stick.getY()), -(stick.getZ() * TURN_MULTIPLIER));
+            drive.arcadeDrive(squared, -(z * TURN_MULTIPLIER));
         } else {
-            drive.arcadeDrive(stick.getY(), -(stick.getZ()));
+            drive.arcadeDrive(squared, -(z));
         }
 //
 //        rightMotor.setPeriodMultiplier()

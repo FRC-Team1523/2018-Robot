@@ -18,10 +18,10 @@ public class Shift extends Command {
     @Override
     protected void execute() {
         if (Robot.oi.joystick.getRawButtonPressed(3)) {
-            SmartDashboard.putBoolean("Shift", false);
+            SmartDashboard.putBoolean("Shift", true);
             Robot.shifter.downShift();
         } else if (Robot.oi.joystick.getRawButtonPressed(4)) {
-            SmartDashboard.putBoolean("Shift", true);
+            SmartDashboard.putBoolean("Shift", false );
             Robot.shifter.upShift();
         }
     }
