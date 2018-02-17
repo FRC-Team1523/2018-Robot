@@ -38,7 +38,7 @@ public class DriveTrain extends Subsystem {
         double z = stick.getZ();
         double squared = squared(y);
 
-        if (stick.getRawButtonPressed(2)) {
+        if (stick.getRawButton(2)) {
             squared *= REDUCE_MULTIPLIER;
         }
 
