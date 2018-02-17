@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.team1523.robot.InplaceDifferentialDrive;
 import frc.team1523.robot.Robot;
 import frc.team1523.robot.commands.TankDrive;
+
 import static frc.team1523.robot.RobotMap.*;
 import static frc.team1523.robot.Constants.*;
 
@@ -18,12 +19,13 @@ public class DriveTrain extends Subsystem {
     private Spark leftMotor = new Spark(DRIVE_LEFT);
     private Spark rightMotor = new Spark(DRIVE_RIGHT);
 
-//        private DifferentialDrive drive = new DifferentialDrive(leftMotor, rightMotor);
+    //        private DifferentialDrive drive = new DifferentialDrive(leftMotor, rightMotor);
     private InplaceDifferentialDrive drive = new InplaceDifferentialDrive(leftMotor, rightMotor);
 
     @Override
     public void initDefaultCommand() {
         setDefaultCommand(new TankDrive());
+//        rightMotor.set
     }
 
     /**
@@ -33,12 +35,23 @@ public class DriveTrain extends Subsystem {
      */
     public void drive(Joystick stick) {
         if (Robot.shifter.isHigh()) {
-            drive.arcadeDrive(stick.getY(), -(stick.getZ() * TURN_MULTIPLIER));
+            drive.arcadeDrive(squared(stick.getY()), -(stick.getZ() * TURN_MULTIPLIER));
         } else {
             drive.arcadeDrive(stick.getY(), -(stick.getZ()));
         }
+//
+//        rightMotor.setPeriodMultiplier()
 //        drive.curvatureDrive(-stick.getY(), stick.getZ(), stick.getRawButton(2));
 //        drive.inplaceDrive(stick.getY(), -stick.getZ(), stick.getX(), true);
+    }
+
+    private double squared(double input) {
+        //Make sure to keep the sign so the direction you input is not changed by squaring it
+        if (input > 0) {
+            return input * input;
+        } else {
+            return -(input * input);
+        }
     }
 
     public void drive(double leftSpeed, double rightSpeed) {

@@ -22,14 +22,19 @@ public class ArmRaiser extends Subsystem {
 //        rotationSensor = new DigitalInput(3);
     }
 
+    private static double clamp(double value) {
+        return Math.min(.5, Math.max(-1, value));
+    }
+
+
     public void move(XboxController gamepad) {
         // Right up
         double rightBumper = gamepad.getRawAxis(BUMPER_ANALOG_RIGHT);
         double leftBumper = gamepad.getRawAxis(BUMPER_ANALOG_LEFT);
         if (rightBumper >= ANALOG_BUMPER_DEADBAND) {
-            armSpark.set(-((rightBumper * rightBumper) * ARM_MUTLIPLIER));
+            armSpark.set(clamp(-((rightBumper * rightBumper) * ARM_MUTLIPLIER)));
         } else if (leftBumper >= ANALOG_BUMPER_DEADBAND) {
-            armSpark.set((leftBumper * leftBumper) * ARM_MUTLIPLIER);
+            armSpark.set(clamp((leftBumper * leftBumper) * ARM_MUTLIPLIER));
         } else {
             armSpark.set(0.0);
         }

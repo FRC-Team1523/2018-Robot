@@ -52,6 +52,7 @@ public class Robot extends IterativeRobot {
         compressor.setClosedLoopControl(true);
 
         SmartDashboard.putData(new PCMStickyClearCommand());
+        SmartDashboard.putData(new ResetEncodersCommand());
 
         CameraServer.getInstance().startAutomaticCapture(0);
 
@@ -86,6 +87,7 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Encoder Left", encoders.left.getDistance());
         SmartDashboard.putNumber("Encoder Right", encoders.right.getDistance());
+        SmartDashboard.putNumber("Angle", Robot.ahrs.getAngle());
 //        System.out.println(counter.getDistance());
 //        SmartDashboard.putNumber("Get", counter.get());
 //        SmartDashboard.putNumber("Period", counter.getPeriod());

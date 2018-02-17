@@ -20,7 +20,8 @@ public class AutoTurn extends Command {
     @Override
     protected void initialize() {
         Robot.driveTrain.reset();
-        Robot.ahrs.reset();
+        Robot.shifter.upShift();
+        Robot.ahrs.zeroYaw();
     }
 
     @Override

@@ -19,7 +19,7 @@ public class Intake extends Command {
 
     @Override
     protected void execute() {
-        if (Robot.oi.gamepad.getBButtonPressed()) {
+        if (Robot.oi.gamepad.getYButtonPressed()) {
             if (intakeThread != null) {
                 intakeThread.interrupt();
                 Robot.intaker.stopMotor();

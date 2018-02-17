@@ -50,6 +50,11 @@ public class InplaceDifferentialDrive extends RobotDriveBase {
         inplaceDrive(xSpeed, zRotation, true, ySpeed, quickTurn);
     }
 
+
+    private static double clampLeft(double value) {
+        return Math.min(.80, Math.max(-.80, value));
+    }
+
     /**
      * Inplace drive method for differential drive platform.
      *
@@ -180,6 +185,8 @@ public class InplaceDifferentialDrive extends RobotDriveBase {
                 rightMotorOutput = xSpeed - zRotation;
             }
         }
+
+        leftMotorOutput = clampLeft(leftMotorOutput);
 
         m_leftMotor.set(limit(leftMotorOutput) * m_maxOutput);
         m_rightMotor.set(-limit(rightMotorOutput) * m_maxOutput);

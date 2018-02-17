@@ -17,9 +17,9 @@ public class ArmGrab extends Command {
     @Override
     protected void execute() {
         if (Robot.oi.gamepad.getXButtonPressed()) {
-            Robot.armGrabber.release();
-        } else if (Robot.oi.gamepad.getYButtonPressed()) {
             Robot.armGrabber.grab();
+        } else if (Robot.oi.gamepad.getBButtonPressed()) {
+            Robot.armGrabber.release();
         }
     }
 
