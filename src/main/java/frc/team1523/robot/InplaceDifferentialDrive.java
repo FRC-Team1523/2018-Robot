@@ -186,7 +186,7 @@ public class InplaceDifferentialDrive extends RobotDriveBase {
             }
         }
 
-        leftMotorOutput = clampLeft(leftMotorOutput);
+//        leftMotorOutput = clampLeft(leftMotorOutput);
 
         m_leftMotor.set(limit(leftMotorOutput) * m_maxOutput);
         m_rightMotor.set(-limit(rightMotorOutput) * m_maxOutput);
