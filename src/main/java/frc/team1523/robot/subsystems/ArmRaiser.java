@@ -12,7 +12,7 @@ import static frc.team1523.robot.RobotMap.*;
  * Controls armRaiser to lift the power cubes
  */
 public class ArmRaiser extends Subsystem {
-    private Spark armSpark = new Spark(ARM_SPARK);
+//    public Spark armSpark = new Spark(ARM_SPARK);
     private DigitalInput rotationSensor;
 
 
@@ -26,17 +26,21 @@ public class ArmRaiser extends Subsystem {
         return Math.min(.5, Math.max(-1, value));
     }
 
+    public void setPower(double power) {
+//        armSpark.set(-power);
+    }
 
     public void move(XboxController gamepad) {
+        // TODO: PID
         // Right up
-        double rightBumper = gamepad.getRawAxis(BUMPER_ANALOG_RIGHT);
-        double leftBumper = gamepad.getRawAxis(BUMPER_ANALOG_LEFT);
-        if (rightBumper >= ANALOG_BUMPER_DEADBAND) {
-            armSpark.set(clamp(-((rightBumper * rightBumper) * ARM_MUTLIPLIER)));
-        } else if (leftBumper >= ANALOG_BUMPER_DEADBAND) {
-            armSpark.set(clamp((leftBumper * leftBumper) * ARM_MUTLIPLIER));
-        } else {
-            armSpark.set(0.0);
-        }
+//        double rightBumper = gamepad.getRawAxis(BUMPER_ANALOG_RIGHT);
+//        double leftBumper = gamepad.getRawAxis(BUMPER_ANALOG_LEFT);
+//        if (rightBumper >= ANALOG_BUMPER_DEADBAND) {
+//            armSpark.set(clamp(-((rightBumper * rightBumper) * ARM_MUTLIPLIER)));
+//        } else if (leftBumper >= ANALOG_BUMPER_DEADBAND) {
+//            armSpark.set(clamp((leftBumper * leftBumper) * ARM_MUTLIPLIER));
+//        } else {
+//            armSpark.set(0.0);
+//        }
     }
 }

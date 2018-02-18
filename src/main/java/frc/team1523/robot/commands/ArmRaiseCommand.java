@@ -18,7 +18,7 @@ public class ArmRaiseCommand extends Command {
      */
     @Override
     protected void execute() {
-        Robot.armRaiser.move(Robot.oi.gamepad);
+//        Robot.armRaiser.move(Robot.oi.gamepad);
     }
 
     @Override

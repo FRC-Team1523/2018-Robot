@@ -70,9 +70,18 @@ public class Robot extends IterativeRobot {
         chooser.addObject("Turn 45", new AutoTurn(0.25, 45));
         chooser.addObject("Turn 90", new AutoTurn(0.25, 90));
         chooser.addObject("Turn 360", new AutoTurn(0.25, 360));
+        chooser.addObject("Arm Raise", new AutoRaise(0.4, 3));
         chooser.addObject("Sequence", new Sequential());
         chooser.addDefault("Nothing", null);
         SmartDashboard.putData("Auto", chooser);
+
+        armEncoder = new CTREMagneticEncoder(4);
+
+
+        armPIDSubsystem = new ArmPIDCommand(360 - armEncoder.getPWMAngle());
+//        armPIDSubsystem.setSetpoint(200);
+
+//        armSetpointer = new SetArmSetpoint(200);
     }
 
     @Override
@@ -88,19 +97,25 @@ public class Robot extends IterativeRobot {
     @Override
     public void robotPeriodic() {
         Scheduler.getInstance().run();
+
+        // Not called automatically from PIDCommand
+        armPIDSubsystem.execute();
+
+
         SmartDashboard.putNumber("Encoder Left", encoders.left.getDistance());
         SmartDashboard.putNumber("Encoder Right", encoders.right.getDistance());
         SmartDashboard.putBoolean("Reduce", Robot.oi.joystick.getRawButton(2));
 
         SmartDashboard.putNumber("Angle", Robot.ahrs.getAngle());
-//        SmartDashboard.putNumber("Pitch", Robot.ahrs.getPitch());
-//        SmartDashboard.putNumber("Roll", Robot.ahrs.getRoll());
-//        System.out.println(Robot.ahrs.getRoll());
-//        //        System.out.println(counter.getDistance());
-//        SmartDashboard.putNumber("Get", counter.get());
-//        SmartDashboard.putNumber("Period", counter.getPeriod());
-//        SmartDashboard.putNumber("Distance", counter.getDistance());
-//        SmartDashboard.putNumber("Rate", counter.getRate());
+
+        SmartDashboard.putBoolean("Target", armPIDSubsystem.onTarget());
+
+//        double set = SmartDashboard.getNumber("Setpoint", 0.0);
+//        armPIDSubsystem.setSetpoint(set);
+
+        SmartDashboard.putNumber("Arm Angle", 360 - armEncoder.getPWMAngle());
+        SmartDashboard.putNumber("Setpoint", armPIDSubsystem.setpoint);
+//        System.out.println(SmartDashboard.getNumber("INPUT", 0));
     }
 
     @Override
