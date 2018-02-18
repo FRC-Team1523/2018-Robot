@@ -1,8 +1,6 @@
 
 package frc.team1523.robot;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Command;
@@ -57,6 +55,7 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData(new ResetEncodersCommand());
 
         CameraServer.getInstance().startAutomaticCapture(0);
+        CameraServer.getInstance().startAutomaticCapture(1);
 
         try {
             ahrs = new AHRS(SPI.Port.kMXP);
