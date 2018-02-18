@@ -16,6 +16,7 @@ class IntakeThread extends Thread {
     @Override
     public void run() {
         Robot.intaker.activate();
+        Robot.intaker.startMotor();
 //        doDelay();
         Timer.delay(1);
         Robot.intaker.cleanUp();
@@ -25,12 +26,4 @@ class IntakeThread extends Thread {
 //            Robot.intaker.cleanUp();
 //        }
     }
-
-//    private void doDelay() {
-////        try {
-////            Thread.sleep(1000);
-////        } catch (Exception e) {
-////            e.printStackTrace();
-////        }
-//    }
 }

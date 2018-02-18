@@ -45,5 +45,6 @@ public class Intaker extends Subsystem {
 
     public void cleanUp() {
         update(kReverse);
+        stopMotor();
     }
 }
