@@ -11,10 +11,10 @@
 * Analog Bumpers
     * Right - Arm Up
     * Left - Arm Down
-* Bumpers
-    * Left - Winch out / down
 * Letters
     * X - Open grabbers
     * Y - Close grabbers
     * B - Box intake
     * A - Winch lock
+* Middle buttons
+    * Left - Winch out / down
