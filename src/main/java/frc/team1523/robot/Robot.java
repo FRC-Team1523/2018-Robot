@@ -78,7 +78,7 @@ public class Robot extends IterativeRobot {
 
 
         armPIDSubsystem = new ArmPIDCommand(360 - armEncoder.getPWMAngle());
-//        armPIDSubsystem.setSetpoint(200);
+        armPIDSubsystem.setSetpoint(200);
 
 //        armSetpointer = new SetArmSetpoint(200);
     }

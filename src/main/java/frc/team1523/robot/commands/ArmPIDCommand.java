@@ -23,15 +23,16 @@ public class ArmPIDCommand extends PIDCommand { // This system extends PIDSubsys
     private double scalePos = 100;
 
 
+    // P: 0.04, I: 0.003, D: 0.002
     public ArmPIDCommand(double startPoint) {
-        super("ArmPIDCommand", 0.05, 0.0, 0.0);// The constructor passes a name for the subsystem and the P, I and D constants that are used when computing the motor output
+        super("ArmPIDCommand", 0.04, 0.003, 0.002);
         getPIDController().setPercentTolerance(10);
 
         getPIDController().setContinuous(false);
 
         setInputRange(minAngle, maxAngle);
 
-        getPIDController().setOutputRange(-.1, .5);// -1, 1
+        getPIDController().setOutputRange(-.2, .6);// -1, 1
 
         getPIDController().setSetpoint(startPoint);
         setpoint = startPoint;
@@ -64,7 +65,7 @@ public class ArmPIDCommand extends PIDCommand { // This system extends PIDSubsys
         armSpark.set(-output);
     }
 
-//    @Override
+    //    @Override
     public void execute() {
         double rightBumper = Robot.oi.gamepad.getRawAxis(BUMPER_ANALOG_RIGHT);
         double leftBumper = Robot.oi.gamepad.getRawAxis(BUMPER_ANALOG_LEFT);
@@ -72,9 +73,9 @@ public class ArmPIDCommand extends PIDCommand { // This system extends PIDSubsys
 
 
         if (rightBumper > 0.05) {
-            setSetpoint(setpoint + 0.1);
+            setSetpoint(setpoint + (0.75 * rightBumper));
         } else if (leftBumper > 0.05) {
-            setSetpoint(setpoint - 0.1);
+            setSetpoint(setpoint - (0.75 * leftBumper));
         }
     }
 
