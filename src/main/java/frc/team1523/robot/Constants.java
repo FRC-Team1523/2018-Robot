@@ -1,11 +1,11 @@
 package frc.team1523.robot;
 
 public class Constants {
+    // 4 is the kx encoder resolution
     private static double ENCODER_REVOLUTION = 360;
     private static double WHEEL_DIAMETER = 7.25;
-    public static double PULSES_PER_INCH = 1440; // 360 * 4x
-    //    public static double WHEEL_INCH = 108.649774484;
-    public static double WHEEL_INCH = ENCODER_REVOLUTION / (Math.PI * WHEEL_DIAMETER);
+    public static double WHEEL_REVOLUTION = (Math.PI * WHEEL_DIAMETER) / ENCODER_REVOLUTION;
+
     public static double INTAKE_SPEED = .25;
 
     public static double ANALOG_BUMPER_DEADBAND = 0.03;

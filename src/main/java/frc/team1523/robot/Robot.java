@@ -12,7 +12,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.team1523.robot.commands.*;
 import frc.team1523.robot.subsystems.*;
 
-import static frc.team1523.robot.Constants.*;
 import static frc.team1523.robot.RobotMap.*;
 
 
@@ -30,6 +29,9 @@ public class Robot extends IterativeRobot {
     @SuppressWarnings("FieldCanBeLocal")
     public static Compressor compressor;
 
+    public static CTREMagneticEncoder armEncoder;
+    public static ArmPIDCommand armPIDSubsystem;
+    //    public static SetArmSetpoint armSetpointer;
     public static AHRS ahrs;
 
     Command autonomousCommand;
