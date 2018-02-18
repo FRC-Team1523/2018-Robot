@@ -1,5 +1,6 @@
 package frc.team1523.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import frc.team1523.robot.Robot;
 
 class IntakeThread extends Thread {
@@ -15,7 +16,8 @@ class IntakeThread extends Thread {
     @Override
     public void run() {
         Robot.intaker.activate();
-        doDelay();
+//        doDelay();
+        Timer.delay(1);
         Robot.intaker.cleanUp();
 //        if (Robot.intaker.rightSwitch.get() && Robot.intaker.leftSwitch.get()) {
 //            Robot.intaker.startMotor();
@@ -24,11 +26,11 @@ class IntakeThread extends Thread {
 //        }
     }
 
-    private void doDelay() {
-        try {
-            Thread.sleep(2000);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    private void doDelay() {
+////        try {
+////            Thread.sleep(1000);
+////        } catch (Exception e) {
+////            e.printStackTrace();
+////        }
+//    }
 }
