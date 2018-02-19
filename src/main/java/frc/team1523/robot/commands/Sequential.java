@@ -10,20 +10,24 @@ public class Sequential extends CommandGroup {
     public Sequential() {
         requires(Robot.driveTrain);
         requires(Robot.armGrabber);
+        addSequential(new AutoDrive(0.3, 60));
+        addSequential(new AutoRaise(200));
+        addSequential(new AutoDrive(0.3, -60));
+        addSequential(new AutoRaise(0));
 //        addParallel(new AutoDrive(0.50, 600));
 //        addParallel(new AutoRaise(0.45, 1.5));
-        addSequential(new Command() {
-            @Override
-            protected boolean isFinished() {
-                Robot.armGrabber.grab();
-                return true;
-            }
-        });
-        addSequential(new AutoDrive(0.65, 1400));
-        addSequential(new WaitCommand(0.5));
-        addSequential(new AutoTurn(0.35 , -90));
-        addParallel(new AutoDrive(0.3, 275));
-        addParallel(new AutoRaise(0.56, 1.75));
-        addSequential(new AutoDrive(0.33, -75));
+//        addSequential(new Command() {
+//            @Override
+//            protected boolean isFinished() {
+//                Robot.armGrabber.grab();
+//                return true;
+//            }
+//        });
+//        addSequential(new AutoDrive(0.65, 1400));
+//        addSequential(new WaitCommand(0.5));
+//        addSequential(new AutoTurn(0.35 , -90));
+//        addParallel(new AutoDrive(0.3, 275));
+////        addParallel(new AutoRaise(0.56, 1.75));
+//        addSequential(new AutoDrive(0.33, -75));
     }
 }

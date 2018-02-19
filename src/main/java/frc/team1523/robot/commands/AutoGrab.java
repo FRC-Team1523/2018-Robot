@@ -9,8 +9,15 @@ public class AutoGrab extends InstantCommand {
         kRelease,
     }
 
+    private GrabState state;
+
     public AutoGrab(GrabState state) {
         requires(Robot.driveTrain);
+        this.state = state;
+    }
+
+    @Override
+    protected void initialize() {
         if (state == GrabState.kGrab) {
             Robot.armGrabber.grab();
         } else {

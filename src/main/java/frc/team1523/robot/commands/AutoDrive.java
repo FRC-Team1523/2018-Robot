@@ -28,9 +28,9 @@ public class AutoDrive extends Command {
         // Drive Backwards
         if (distance < 0) {
             // If the encoders have not reached the right distance
-            if (Robot.encoders.right.getDistance() < -distance) {
+            if (Robot.encoders.right.getDistance() > distance) {
                 // Drive backwards
-                Robot.driveTrain.drive(speed, speed);
+                Robot.driveTrain.drive(-speed, -speed);
             } else {
                 //Stop
                 finished = true;

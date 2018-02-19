@@ -28,7 +28,7 @@ public class Robot extends IterativeRobot {
     public static Compressor compressor;
 
     public static CTREMagneticEncoder armEncoder;
-    public static ArmPIDCommand armPIDSubsystem;
+    public static ArmPIDCommand armPIDCommand;
     //    public static SetArmSetpoint armSetpointer;
     public static AHRS ahrs;
 
@@ -69,7 +69,7 @@ public class Robot extends IterativeRobot {
         chooser.addObject("Turn 45", new AutoTurn(0.25, 45));
         chooser.addObject("Turn 90", new AutoTurn(0.25, 90));
         chooser.addObject("Turn 360", new AutoTurn(0.25, 360));
-        chooser.addObject("Arm Raise", new AutoRaise(0.4, 3));
+        chooser.addObject("Arm Raise", new AutoRaise(200));
         chooser.addObject("Sequence", new Sequential());
         chooser.addDefault("Nothing", null);
         SmartDashboard.putData("Auto", chooser);
@@ -77,8 +77,8 @@ public class Robot extends IterativeRobot {
         armEncoder = new CTREMagneticEncoder(4);
 
 
-        armPIDSubsystem = new ArmPIDCommand(360 - armEncoder.getPWMAngle());
-        armPIDSubsystem.setSetpoint(200);
+        armPIDCommand = new ArmPIDCommand(360 - armEncoder.getPWMAngle());
+//        armPIDCommand.setSetpoint(200);
 
 //        armSetpointer = new SetArmSetpoint(200);
     }
@@ -91,6 +91,7 @@ public class Robot extends IterativeRobot {
     @Override
     public void disabledPeriodic() {
         Scheduler.getInstance().run();
+        armPIDCommand.disable();
     }
 
     @Override
@@ -98,7 +99,7 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
 
         // Not called automatically from PIDCommand
-        armPIDSubsystem.execute();
+        armPIDCommand.execute();
 
 
         SmartDashboard.putNumber("Encoder Left", encoders.left.getDistance());
@@ -107,19 +108,25 @@ public class Robot extends IterativeRobot {
 
         SmartDashboard.putNumber("Angle", Robot.ahrs.getAngle());
 
-        SmartDashboard.putBoolean("Target", armPIDSubsystem.onTarget());
+        SmartDashboard.putBoolean("Target", armPIDCommand.onTarget());
 
 //        double set = SmartDashboard.getNumber("Setpoint", 0.0);
-//        armPIDSubsystem.setSetpoint(set);
+//        armPIDCommand.setSetpoint(set);
 
         SmartDashboard.putNumber("Arm Angle", 360 - armEncoder.getPWMAngle());
-        SmartDashboard.putNumber("Setpoint", armPIDSubsystem.setpoint);
+        SmartDashboard.putNumber("Setpoint", armPIDCommand.setpoint);
 //        System.out.println(SmartDashboard.getNumber("INPUT", 0));
+    }
+
+    private void updateArmSetpoint() {
+        armPIDCommand.setSetpoint(360 - armEncoder.getPWMAngle());
     }
 
     @Override
     public void autonomousInit() {
-//        autonomousCommand.start();
+        updateArmSetpoint();
+        armPIDCommand.enable();
+        //        autonomousCommand.start();
         autonomousCommand = chooser.getSelected();
         if (autonomousCommand != null) {
             autonomousCommand.start();
@@ -134,10 +141,14 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
     }
 
+
     @Override
     public void teleopInit() {
-
+        updateArmSetpoint();
+        armPIDCommand.enable();
     }
+
+
 
     /**
      * This function is called periodically during operator control
