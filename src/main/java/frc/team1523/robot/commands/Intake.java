@@ -1,8 +1,7 @@
 package frc.team1523.robot.commands;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.team1523.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
+import frc.team1523.robot.Robot;
 
 public class Intake extends Command {
 
@@ -19,13 +18,13 @@ public class Intake extends Command {
 
     @Override
     protected void execute() {
-        if (Robot.oi.gamepad.getYButtonPressed()) {
-            if (intakeThread != null) {
-                intakeThread.interrupt();
-                Robot.intaker.stopMotor();
-            }
-            intakeThread = new IntakeThread();
-            intakeThread.run();
+        if (Robot.oi.gamepad.getRawButton(6)) {
+            Robot.intaker.activate();
+            Robot.intaker.startMotor();
+        } else if (Robot.oi.gamepad.getRawButton(9)) {
+            Robot.intaker.pullIn();
+        } else if (Robot.oi.gamepad.getRawButton(10)) {
+            Robot.intaker.stopMotor();
         }
     }
 

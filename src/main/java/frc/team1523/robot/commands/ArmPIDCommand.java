@@ -16,7 +16,7 @@ public class ArmPIDCommand extends PIDCommand { // This system extends PIDSubsys
     private double maxAngle = 289.2;
 
     private double switchPos = 196;
-    private double scalePos = 100;
+    private double scalePos = 277;
 
 
     // P: 0.04, I: 0.003, D: 0.002
@@ -71,9 +71,14 @@ public class ArmPIDCommand extends PIDCommand { // This system extends PIDSubsys
             return;
         }
         if (Robot.oi.joystick.getRawButton(10)) {
-            setSetpoint(230);
+            setSetpoint(scalePos);
             return;
         }
+        if (Robot.oi.joystick.getRawButton(11)) {
+            setSetpoint(0);
+            return;
+        }
+
 
         double rightBumper = Robot.oi.gamepad.getRawAxis(BUMPER_ANALOG_RIGHT);
         double leftBumper = Robot.oi.gamepad.getRawAxis(BUMPER_ANALOG_LEFT);
