@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.team1523.robot.commands.*;
 import frc.team1523.robot.subsystems.*;
 
-import static frc.team1523.robot.RobotMap.*;
+import static frc.team1523.robot.RobotMap.COMPRESSOR;
 
 
 public class Robot extends IterativeRobot {
@@ -76,9 +76,7 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData("Auto", chooser);
 
         armEncoder = new CTREMagneticEncoder(4);
-
-
-        armPIDCommand = new ArmPIDCommand(360 - armEncoder.getPWMAngle());
+        armPIDCommand = new ArmPIDCommand(armEncoder.getPWMAngle());
 //        armPIDCommand.setSetpoint(200);
 
 //        armSetpointer = new SetArmSetpoint(200);
@@ -105,7 +103,6 @@ public class Robot extends IterativeRobot {
 
         SmartDashboard.putNumber("Encoder Left", encoders.left.getDistance());
         SmartDashboard.putNumber("Encoder Right", encoders.right.getDistance());
-        SmartDashboard.putBoolean("Reduce", Robot.oi.joystick.getRawButton(2));
 
         SmartDashboard.putNumber("Angle", Robot.ahrs.getAngle());
 
@@ -114,13 +111,15 @@ public class Robot extends IterativeRobot {
 //        double set = SmartDashboard.getNumber("Setpoint", 0.0);
 //        armPIDCommand.setSetpoint(set);
 
-        SmartDashboard.putNumber("Arm Angle", 360 - armEncoder.getPWMAngle());
+        SmartDashboard.putNumber("Arm Angle", armEncoder.getPWMAngle());
         SmartDashboard.putNumber("Setpoint", armPIDCommand.setpoint);
-//        System.out.println(SmartDashboard.getNumber("INPUT", 0));
+
+        SmartDashboard.putBoolean("Limit left", intaker.leftSwitch.get());
+        SmartDashboard.putBoolean("Limit right", intaker.rightSwitch.get());
     }
 
     private void updateArmSetpoint() {
-        armPIDCommand.setSetpoint(360 - armEncoder.getPWMAngle());
+        armPIDCommand.setSetpoint(armEncoder.getPWMAngle());
     }
 
     @Override
@@ -148,7 +147,6 @@ public class Robot extends IterativeRobot {
         updateArmSetpoint();
         armPIDCommand.enable();
     }
-
 
 
     /**

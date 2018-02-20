@@ -2,6 +2,7 @@ package frc.team1523.robot.commands;
 
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.PIDCommand;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.team1523.robot.Robot;
 
 import static frc.team1523.robot.RobotMap.*;
@@ -12,8 +13,11 @@ public class ArmPIDCommand extends PIDCommand { // This system extends PIDSubsys
 
     public double setpoint = 0;
 
-    private double minAngle = 154.4;
-    private double maxAngle = 289.2;
+//    private double minAngle = 154.4;
+//    private double maxAngle = 289.2;
+
+    private double minAngle = 60.5;
+    private double maxAngle = 189;
 
     private double switchPos = 196;
     private double scalePos = 277;
@@ -21,6 +25,7 @@ public class ArmPIDCommand extends PIDCommand { // This system extends PIDSubsys
 
     // P: 0.04, I: 0.003, D: 0.002
     public ArmPIDCommand(double startPoint) {
+//        super("ArmPIDCommand", 0.06, 0.003, 0.004);
         super("ArmPIDCommand", 0.04, 0.003, 0.002);
         getPIDController().setPercentTolerance(10);
 
@@ -56,16 +61,16 @@ public class ArmPIDCommand extends PIDCommand { // This system extends PIDSubsys
     }
 
     protected double returnPIDInput() {
-        return 360 - Robot.armEncoder.getPWMAngle();
+        return Robot.armEncoder.getPWMAngle();
     }
 
     protected void usePIDOutput(double output) {
-        System.out.println("Setting pid " + output);
         armSpark.set(-output);
     }
 
     // TODO: Fix this
     public void execute() {
+        SmartDashboard.putData(this);
         if (Robot.oi.joystick.getRawButton(9)) {
             setSetpoint(switchPos);
             return;
