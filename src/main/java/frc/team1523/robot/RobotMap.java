@@ -30,6 +30,10 @@ public class RobotMap {
     public static int WINCH_LOCK_B = 7;
 
 
+    /// Limit switches
+    public static int LIMIT_SWITCH_LEFT = 5;
+    public static int LIMIT_SWITCH_RIGHT = 6;
+
     public static int COMPRESSOR = 0;
 
     /// Gamepad bumpers analog

@@ -68,9 +68,10 @@ public class Robot extends IterativeRobot {
         chooser.addObject("Grab close", new AutoGrab(AutoGrab.GrabState.kGrab));
         chooser.addObject("Turn 45", new AutoTurn(0.25, 45));
         chooser.addObject("Turn 90", new AutoTurn(0.25, 90));
-        chooser.addObject("Turn 360", new AutoTurn(0.25, 360));
+        chooser.addObject("Turn 360", new AutoTurn(0.35, 360));
         chooser.addObject("Arm Raise", new AutoRaise(200));
         chooser.addObject("Sequence", new Sequential());
+        chooser.addObject("Center Cube", new AutoCenterCubeCommand(20));
         chooser.addDefault("Nothing", null);
         SmartDashboard.putData("Auto", chooser);
 
