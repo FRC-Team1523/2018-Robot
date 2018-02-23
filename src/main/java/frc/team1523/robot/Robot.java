@@ -110,6 +110,10 @@ public class Robot extends IterativeRobot {
 
 //        double set = SmartDashboard.getNumber("Setpoint", 0.0);
 //        armPIDCommand.setSetpoint(set);
+//        SmartDashboard.putNumber("Pitch", ahrs.getPitch());
+//        SmartDashboard.putNumber("Yaw", ahrs.getYaw());
+//        SmartDashboard.putNumber("Roll", ahrs.getRoll());
+        SmartDashboard.putNumber("Angle-Roll", ahrs.getAngle() / ahrs.getRoll());
 
         SmartDashboard.putNumber("Arm Angle", armEncoder.getPWMAngle());
         SmartDashboard.putNumber("Setpoint", armPIDCommand.setpoint);
