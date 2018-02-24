@@ -12,11 +12,11 @@ public class ArmPIDCommand extends PIDCommand { // This system extends PIDSubsys
 
     public double setpoint = 0;
 
-    private double minAngle = 155.4;
-    private double maxAngle = 289.2;
+    private static double minAngle = 155.4;
+    private static double maxAngle = 289.2;
 
-    private double switchPos = 196;
-    private double scalePos = 277;
+    public static double switchPos = 196;
+    public static double scalePos = 277;
 
 
     // P: 0.04, I: 0.003, D: 0.002
