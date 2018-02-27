@@ -9,31 +9,15 @@ public class Sequential extends CommandGroup {
     public Sequential() {
         requires(Robot.driveTrain);
         requires(Robot.armGrabber);
+        requires(Robot.armRaiser);
 
-        addSequential(new AutoDrive(0.35, 24));
-        addSequential(new AutoTurn(0.35, -90));
-        addSequential(new AutoDrive(0.35, 10));
-        addSequential(new AutoTurn(0.35, -90));
-        addSequential(new Command() {
-            @Override
-            protected boolean isFinished() {
-                Robot.intaker.activate();
-                return true;
-            }
-        });
-        addSequential(new WaitCommand(2));
-        addSequential(new Command() {
-            @Override
-            protected boolean isFinished() {
-                Robot.intaker.pullIn();
-                return true;
-            }
-        });
 
-//        addSequential(new AutoDrive(0.3, 60));
-//        addSequential(new AutoRaise(200));
-//        addSequential(new AutoDrive(0.3, -60));
-//        addSequential(new AutoRaise(0));
-
+        // 234.08
+        addSequential(new AutoDrive(0.35, 208.08));
+        addSequential(new AutoTurn(0.4, 90.4));
+//        addSequential(new AutoRaise(ArmPIDCommand.scalePos));
+        addSequential(new AutoDrive(0.35, 193.79));
+        addSequential(new AutoTurn(0.4, -97.95));
+        addSequential(new AutoDrive(0.35, 59.2));
     }
 }

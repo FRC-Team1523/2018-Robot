@@ -21,7 +21,7 @@ public class ArmPIDCommand extends PIDCommand { // This system extends PIDSubsys
 
     // P: 0.04, I: 0.003, D: 0.002
     public ArmPIDCommand(double startPoint) {
-        super("ArmPIDCommand", 0.04, 0.003, 0.002);
+        super("ArmPIDCommand", 0.03, 0.003, 0.003);
         getPIDController().setPercentTolerance(10);
 
         getPIDController().setContinuous(false);
