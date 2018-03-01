@@ -107,10 +107,11 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("Encoder Right", encoders.right.getDistance());
         SmartDashboard.putBoolean("Reduce", Robot.oi.joystick.getRawButton(2));
 
+//        Robot.ahrs.get
         SmartDashboard.putNumber("Angle", Robot.ahrs.getAngle());
-        SmartDashboard.putNumber("Roll", Robot.ahrs.getRoll());
-        SmartDashboard.putNumber("Yaw", Robot.ahrs.getYaw());
-        SmartDashboard.putNumber("Pitch", Robot.ahrs.getPitch());
+//        SmartDashboard.putNumber("Roll", Robot.ahrs.getRoll());
+//        SmartDashboard.putNumber("Yaw", Robot.ahrs.getYaw());
+//        SmartDashboard.putNumber("Pitch", Robot.ahrs.getPitch());
 
         SmartDashboard.putBoolean("Target", armPIDCommand.onTarget());
 

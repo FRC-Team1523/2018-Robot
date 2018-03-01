@@ -13,11 +13,14 @@ public class Sequential extends CommandGroup {
 
 
         // 234.08
-        addSequential(new AutoDrive(0.35, 208.08));
-        addSequential(new AutoTurn(0.4, 90.4));
-//        addSequential(new AutoRaise(ArmPIDCommand.scalePos));
-        addSequential(new AutoDrive(0.35, 193.79));
-        addSequential(new AutoTurn(0.4, -97.95));
-        addSequential(new AutoDrive(0.35, 59.2));
+//        addSequential(new AutoDrive(0.35, 208.08));
+//        addSequential(new AutoTurn(0.4, 90.4));
+////        addSequential(new AutoRaise(ArmPIDCommand.scalePos));
+//        addSequential(new AutoDrive(0.35, 193.79));
+//        addSequential(new AutoTurn(0.4, -97.95));
+//        addSequential(new AutoDrive(0.35, 59.2));
+
+        addSequential(new AutoTurn(0.35, 45));
+        addSequential(new AutoDrive(0.55, 15));
     }
 }

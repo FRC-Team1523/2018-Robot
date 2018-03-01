@@ -22,10 +22,45 @@ public class DriveTrain extends Subsystem {
     //        private DifferentialDrive drive = new DifferentialDrive(leftMotor, rightMotor);
     private InplaceDifferentialDrive drive = new InplaceDifferentialDrive(leftMotor, rightMotor);
 
+    private double limitedJoystickYPos = 0;
+    private double limitedJoystickYNeg = 0;
+
     @Override
     public void initDefaultCommand() {
         setDefaultCommand(new TankDrive());
-//        rightMotor.set
+    }
+
+    private double ramp(double y) {
+//        double changeY = y - limitedJoystickY;
+//        if (changeY > limit) {
+//            changeY = limit;
+//        } else if (changeY < -limit) {
+//            changeY = -limit;
+//        }
+//        limitedJoystickY += changeY;
+//        return limitedJoystickY;
+        double limit = 0.01;
+        if (y > 0) {
+            double changeY = y - limitedJoystickYPos;
+            if (changeY > limit) {
+                changeY = limit;
+            } else if (changeY < -limit) {
+                changeY = -limit;
+            }
+            limitedJoystickYPos += changeY;
+            limitedJoystickYNeg = 0;
+            return limitedJoystickYPos;
+        } else {
+            double changeY = y - limitedJoystickYNeg;
+            if (changeY > limit) {
+                changeY = limit;
+            } else if (changeY < -limit) {
+                changeY = -limit;
+            }
+            limitedJoystickYNeg += changeY;
+            limitedJoystickYPos = 0;
+            return limitedJoystickYNeg;
+        }
     }
 
     /**
@@ -36,7 +71,12 @@ public class DriveTrain extends Subsystem {
     public void drive(Joystick stick) {
         double y = stick.getY();
         double z = stick.getZ();
+
+//        y = ramp(y);
+
         double squared = squared(y);
+
+//        squared = ramp(squared);
 
         if (stick.getRawButton(2)) {
             squared *= REDUCE_MULTIPLIER;
