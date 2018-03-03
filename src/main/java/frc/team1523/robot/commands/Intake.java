@@ -24,10 +24,6 @@ public class Intake extends Command {
             Robot.intaker.stopMotor();
         } else if (Robot.oi.gamepad.getRawButton(10)) {
             Robot.intaker.pullIn();
-            new Thread(() -> {
-                try { Thread.sleep(1000); } catch (Exception ignored) {}
-                Robot.armPIDCommand.setSetpoint(0);
-            }).run();
         }
     }
 
