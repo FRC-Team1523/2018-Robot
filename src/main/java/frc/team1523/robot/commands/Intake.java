@@ -4,9 +4,6 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.team1523.robot.Robot;
 
 public class Intake extends Command {
-
-    private IntakeThread intakeThread;
-
     public Intake() {
         requires(Robot.intaker);
     }
@@ -28,9 +25,7 @@ public class Intake extends Command {
         } else if (Robot.oi.gamepad.getRawButton(10)) {
             Robot.intaker.pullIn();
             new Thread(() -> {
-                try { Thread.sleep(1000); } catch (Exception ignored) {
-                    System.out.println("Sleep error");
-                }
+                try { Thread.sleep(1000); } catch (Exception ignored) {}
                 Robot.armPIDCommand.setSetpoint(0);
             }).run();
         }
