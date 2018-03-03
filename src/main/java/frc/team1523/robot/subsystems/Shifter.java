@@ -20,23 +20,23 @@ public class Shifter extends Subsystem {
     public void toggle() {
         switch (value) {
             case kOff:
-                update(kForward);
-                break;
-            case kForward:
                 update(kReverse);
                 break;
-            case kReverse:
+            case kForward:
                 update(kForward);
+                break;
+            case kReverse:
+                update(kReverse);
                 break;
         }
     }
 
     public void upShift() {
-        update(kForward);
+        update(kReverse);
     }
 
     public void downShift() {
-        update(kReverse);
+        update(kForward);
     }
 
     private void update(DoubleSolenoid.Value newValue) {
@@ -45,10 +45,10 @@ public class Shifter extends Subsystem {
     }
 
     public boolean isHigh() {
-        return value == kForward;
+        return value == kReverse;
     }
 
     public void cleanUp() {
-        update(kReverse);
+        update(kForward);
     }
 }
