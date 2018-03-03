@@ -12,17 +12,17 @@ public class ArmPIDCommand extends PIDCommand { // This system extends PIDSubsys
 
     public double setpoint = 0;
 
-    private static double minAngle = 155.4;
-    private static double maxAngle = 289.2;
+    private static double minAngle = 154.4;
+    private static double maxAngle = 283.0;
 
     public static double switchPos = 196;
     public static double scalePos = 277;
 
 
-    // P: 0.04, I: 0.003, D: 0.002
+    // P: 0.03, I: 0.002, D: 0.0
     public ArmPIDCommand(double startPoint) {
-        super("ArmPIDCommand", 0.03, 0.003, 0.003);
-        getPIDController().setPercentTolerance(10);
+        super("ArmPIDCommand", 0.03, 0.002, 0.005);
+        getPIDController().setPercentTolerance(3);
 
         getPIDController().setContinuous(false);
 
@@ -60,7 +60,6 @@ public class ArmPIDCommand extends PIDCommand { // This system extends PIDSubsys
     }
 
     protected void usePIDOutput(double output) {
-        System.out.println("Setting pid " + output);
         armSpark.set(-output);
     }
 
@@ -75,6 +74,7 @@ public class ArmPIDCommand extends PIDCommand { // This system extends PIDSubsys
             return;
         }
         if (Robot.oi.joystick.getRawButton(11)) {
+            System.out.println("BUTTOn");
             setSetpoint(0);
             return;
         }

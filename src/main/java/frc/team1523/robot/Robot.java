@@ -22,6 +22,7 @@ public class Robot extends IterativeRobot {
     public static ArmGrabber armGrabber;
     public static Shifter shifter;
     public static Intaker intaker;
+    public static WheelIntake wheelIntake;
     public static WinchLocker winchLocker;
     public static WinchController winchController;
     @SuppressWarnings("FieldCanBeLocal")
@@ -45,6 +46,7 @@ public class Robot extends IterativeRobot {
         armGrabber = new ArmGrabber();
         shifter = new Shifter();
         intaker = new Intaker();
+        wheelIntake = new WheelIntake();
         winchController = new WinchController();
         winchLocker = new WinchLocker();
 
@@ -76,7 +78,6 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData("Auto", chooser);
 
         armEncoder = new CTREMagneticEncoder(4);
-
 
         armPIDCommand = new ArmPIDCommand(360 - armEncoder.getPWMAngle());
 //        armPIDCommand.setSetpoint(200);
