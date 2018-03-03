@@ -1,6 +1,5 @@
 package frc.team1523.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -8,8 +7,8 @@ import frc.team1523.robot.InplaceDifferentialDrive;
 import frc.team1523.robot.Robot;
 import frc.team1523.robot.commands.TankDrive;
 
-import static frc.team1523.robot.RobotMap.*;
 import static frc.team1523.robot.Constants.*;
+import static frc.team1523.robot.RobotMap.*;
 
 /**
  * Controls tank drive
@@ -39,7 +38,7 @@ public class DriveTrain extends Subsystem {
 //        }
 //        limitedJoystickY += changeY;
 //        return limitedJoystickY;
-        double limit = 0.01;
+        double limit = 0.015;
         if (y > 0) {
             double changeY = y - limitedJoystickYPos;
             if (changeY > limit) {
@@ -72,20 +71,15 @@ public class DriveTrain extends Subsystem {
         double y = stick.getY();
         double z = stick.getZ();
 
-//        y = ramp(y);
-
-        double squared = squared(y);
-
-//        squared = ramp(squared);
-
         if (stick.getRawButton(2)) {
-            squared *= REDUCE_MULTIPLIER;
+            y *= REDUCE_MULTIPLIER;
+            z = z * TURN_REDUCE_MULTIPLIER;
         }
 
         if (Robot.shifter.isHigh()) {
-            drive.arcadeDrive(squared, -(z * TURN_MULTIPLIER));
+            drive.arcadeDrive(y, -(z * TURN_MULTIPLIER));
         } else {
-            drive.arcadeDrive(squared, -(z));
+            drive.arcadeDrive(y, -z);
         }
 //
 //        rightMotor.setPeriodMultiplier()
