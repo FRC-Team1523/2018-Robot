@@ -16,7 +16,7 @@ public class ArmPIDCommand extends PIDCommand { // This system extends PIDSubsys
     private static double maxAngle = 283.0;
 
     public static double switchPos = 203;
-    public static double scalePos = 277;
+    public static double scalePos = 268;
 
     public static double cubeIntakePos = 170;
 
