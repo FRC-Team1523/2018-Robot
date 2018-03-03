@@ -18,17 +18,21 @@ public class ArmPIDCommand extends PIDCommand { // This system extends PIDSubsys
     public static double switchPos = 196;
     public static double scalePos = 277;
 
+    public static double cubeIntakePos = 162;
+
 
     // P: 0.03, I: 0.002, D: 0.0
     public ArmPIDCommand(double startPoint) {
-        super("ArmPIDCommand", 0.03, 0.002, 0.005);
+        // 0.03, 0.002, 0.005
+//        super("ArmPIDCommand", 0.04, 0.001, 0);
+        super("ArmPIDCommand", 0.03, 0.002, 0);
         getPIDController().setPercentTolerance(3);
 
         getPIDController().setContinuous(false);
 
         setInputRange(minAngle, maxAngle);
 
-        getPIDController().setOutputRange(-.2, .6);// -1, 1
+        getPIDController().setOutputRange(-.2, .6);// -.2, .6
 
         getPIDController().setSetpoint(startPoint);
         setpoint = startPoint;
@@ -74,7 +78,6 @@ public class ArmPIDCommand extends PIDCommand { // This system extends PIDSubsys
             return;
         }
         if (Robot.oi.joystick.getRawButton(11)) {
-            System.out.println("BUTTOn");
             setSetpoint(0);
             return;
         }
@@ -84,9 +87,9 @@ public class ArmPIDCommand extends PIDCommand { // This system extends PIDSubsys
         double leftBumper = Robot.oi.gamepad.getRawAxis(BUMPER_ANALOG_LEFT);
 
         if (rightBumper > 0.05) {
-            setSetpoint(setpoint + (0.75 * rightBumper));
+            setSetpoint(setpoint + (0.85 * rightBumper));
         } else if (leftBumper > 0.05) {
-            setSetpoint(setpoint - (0.75 * leftBumper));
+            setSetpoint(setpoint - (0.7 * leftBumper));
         }
     }
 

@@ -20,12 +20,19 @@ public class Intake extends Command {
     protected void execute() {
         if (Robot.oi.gamepad.getRawButton(6)) {
             Robot.intaker.activate();
+            Robot.armPIDCommand.setSetpoint(ArmPIDCommand.cubeIntakePos);
         } else if (Robot.oi.gamepad.getRawButton(5)) {
             Robot.intaker.startMotor();
         } else if (Robot.oi.gamepad.getRawButton(9)) {
             Robot.intaker.stopMotor();
         } else if (Robot.oi.gamepad.getRawButton(10)) {
             Robot.intaker.pullIn();
+            new Thread(() -> {
+                try { Thread.sleep(1000); } catch (Exception ignored) {
+                    System.out.println("Sleep error");
+                }
+                Robot.armPIDCommand.setSetpoint(0);
+            }).run();
         }
     }
 
