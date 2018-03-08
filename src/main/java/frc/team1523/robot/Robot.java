@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.team1523.robot.auto.*;
 import frc.team1523.robot.commands.*;
 import frc.team1523.robot.subsystems.*;
 

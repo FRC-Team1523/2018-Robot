@@ -4,6 +4,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
 import frc.team1523.robot.Robot;
+import frc.team1523.robot.auto.AutoDrive;
+import frc.team1523.robot.auto.AutoTurn;
 
 public class Sequential extends CommandGroup {
     public Sequential() {
