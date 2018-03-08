@@ -15,8 +15,11 @@ public class WheelArmSubsystem extends Subsystem {
         setDefaultCommand(new WheelArmCommand());
     }
 
-    public void setSpeed(double value) {
+    public void setLeft(double value) {
         intakeMotor1.set(value);
+    }
+
+    public void setRight(double value) {
         intakeMotor2.set(value);
     }
 }

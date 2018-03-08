@@ -14,12 +14,38 @@ public class WheelArmCommand extends Command {
 
     @Override
     protected void execute() {
-        double speed = Robot.oi.gamepad.getRawAxis(0);
-        if (Math.abs(speed) >= 0.03) {
-            Robot.wheelIntakeArm.setSpeed(squared(speed));
+        double leftArmMove = Robot.oi.gamepad.getRawAxis(0);
+        double leftArmSpin = -Robot.oi.gamepad.getRawAxis(1);
+        if (Math.abs(leftArmMove) >= 0.03) {
+            Robot.wheelIntakeArm.setLeft(squared(leftArmMove));
         } else {
-            Robot.wheelIntakeArm.setSpeed(0);
+            Robot.wheelIntakeArm.setLeft(0);
         }
+        if (Math.abs(leftArmSpin) >= 0.03) {
+            Robot.wheelIntake.setLeft(squared(leftArmSpin));
+        } else {
+            Robot.wheelIntake.setLeft(0);
+        }
+
+        double rightArmMove = -Robot.oi.gamepad.getRawAxis(4);
+        double rightArmSpin = -Robot.oi.gamepad.getRawAxis(5);
+        if (Math.abs(rightArmMove) >= 0.03) {
+            Robot.wheelIntakeArm.setRight(squared(rightArmMove));
+        } else {
+            Robot.wheelIntakeArm.setRight(0);
+        }
+        if (Math.abs(rightArmSpin) >= 0.03) {
+            Robot.wheelIntake.setRight(squared(rightArmSpin));
+        } else {
+            Robot.wheelIntake.setRight(0);
+        }
+
+//        double speed = Robot.oi.gamepad.getRawAxis(0);
+//        if (Math.abs(speed) >= 0.03) {
+//            Robot.wheelIntakeArm.setSpeed(squared(speed));
+//        } else {
+//            Robot.wheelIntakeArm.setSpeed(0);
+//        }
     }
 
     private double squared(double input) {

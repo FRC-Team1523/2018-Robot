@@ -14,12 +14,12 @@ public class WheelIntakeCommand extends Command {
 
     @Override
     protected void execute() {
-        double speed = Robot.oi.gamepad.getRawAxis(5);
-        if (Math.abs(speed) >= 0.03) {
-            Robot.wheelIntake.setSpeed(squared(speed));
-        } else {
-            Robot.wheelIntake.setSpeed(0);
-        }
+//        double speed = Robot.oi.gamepad.getRawAxis(5);
+//        if (Math.abs(speed) >= 0.03) {
+//            Robot.wheelIntake.setSpeed(squared(speed));
+//        } else {
+//            Robot.wheelIntake.setSpeed(0);
+//        }
     }
 
     private double squared(double input) {

@@ -18,11 +18,13 @@ public class WheelIntake extends Subsystem {
     @Override
     public void initDefaultCommand() {
         setDefaultCommand(new WheelIntakeCommand());
-        System.out.println("init");
     }
 
-    public void setSpeed(double value) {
+    public void setLeft(double value) {
         intakeMotor1.set(value);
+    }
+
+    public void setRight(double value) {
         intakeMotor2.set(value);
     }
 }
