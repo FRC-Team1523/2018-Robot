@@ -5,9 +5,10 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import static frc.team1523.robot.Constants.*;
-import static frc.team1523.robot.RobotMap.*;
 import frc.team1523.robot.commands.Winch;
+
+import static frc.team1523.robot.Constants.WINCH_SPEED;
+import static frc.team1523.robot.RobotMap.WINCH_SPARK;
 
 public class WinchController extends Subsystem {
     private Spark winchSpark = new Spark(WINCH_SPARK);
@@ -23,9 +24,7 @@ public class WinchController extends Subsystem {
         boolean rightBumper = gamepad.getBumper(GenericHID.Hand.kRight);
         boolean leftBumper = gamepad.getBumper(GenericHID.Hand.kLeft);
         boolean backButton = gamepad.getRawButton(7);
-        if (backButton) { // down
-            winchSpark.set(-WINCH_SPEED);
-        } else if (trigger) { // up
+        if (trigger) { // up
             winchSpark.set(WINCH_SPEED);
         } else {
             winchSpark.set(0.0);

@@ -17,5 +17,6 @@ public class Constants {
 
     public static double AUTO_TURN_SPEED = 0.5;
 
-    public static double REDUCE_MULTIPLIER = 0.65;
+    public static double REDUCE_MULTIPLIER = 0.64;
+    public static double TURN_REDUCE_MULTIPLIER = 0.78;
 }

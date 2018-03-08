@@ -92,9 +92,9 @@ public class ArmPIDCommand extends PIDCommand { // This system extends PIDSubsys
         double leftBumper = Robot.oi.gamepad.getRawAxis(BUMPER_ANALOG_LEFT);
 
         if (rightBumper > 0.05) {
-            setSetpoint(setpoint + (0.75 * rightBumper));
+            setSetpoint(setpoint + (0.85 * rightBumper));
         } else if (leftBumper > 0.05) {
-            setSetpoint(setpoint - (0.75 * leftBumper));
+            setSetpoint(setpoint - (0.7 * leftBumper));
         }
     }
 

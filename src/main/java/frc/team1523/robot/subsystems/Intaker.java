@@ -23,6 +23,7 @@ public class Intaker extends Subsystem {
     @Override
     public void initDefaultCommand() {
         setDefaultCommand(new Intake());
+        intakeMotor.setInverted(true);
         leftSwitch = new DigitalInput(LIMIT_SWITCH_LEFT);
         rightSwitch = new DigitalInput(LIMIT_SWITCH_RIGHT);
     }

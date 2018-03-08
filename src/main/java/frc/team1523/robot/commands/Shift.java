@@ -1,8 +1,8 @@
 package frc.team1523.robot.commands;
 
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.team1523.robot.Robot;
-import edu.wpi.first.wpilibj.command.Command;
 
 
 public class Shift extends Command {
@@ -17,11 +17,11 @@ public class Shift extends Command {
 
     @Override
     protected void execute() {
-        if (Robot.oi.joystick.getRawButtonPressed(3)) {
-            SmartDashboard.putBoolean("Shift", true);
+        if (Robot.oi.joystick.getRawButtonPressed(3)) { // Left
+            SmartDashboard.putBoolean("Shift", false);
             Robot.shifter.downShift();
-        } else if (Robot.oi.joystick.getRawButtonPressed(4)) {
-            SmartDashboard.putBoolean("Shift", false );
+        } else if (Robot.oi.joystick.getRawButtonPressed(4)) { // Right
+            SmartDashboard.putBoolean("Shift", true);
             Robot.shifter.upShift();
         }
     }

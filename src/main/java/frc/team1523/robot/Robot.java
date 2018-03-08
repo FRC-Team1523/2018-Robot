@@ -23,6 +23,8 @@ public class Robot extends IterativeRobot {
     public static Shifter shifter;
     public static Intaker intaker;
     public static WinchLocker winchLocker;
+    public static WheelIntake wheelIntake;
+    public static WheelArmSubsystem wheelIntakeArm;
     public static WinchController winchController;
     @SuppressWarnings("FieldCanBeLocal")
     public static Compressor compressor;
@@ -45,6 +47,8 @@ public class Robot extends IterativeRobot {
         armGrabber = new ArmGrabber();
         shifter = new Shifter();
         intaker = new Intaker();
+        wheelIntake = new WheelIntake();
+        wheelIntakeArm = new WheelArmSubsystem();
         winchController = new WinchController();
         winchLocker = new WinchLocker();
 

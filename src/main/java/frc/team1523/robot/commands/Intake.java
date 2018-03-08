@@ -4,9 +4,6 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.team1523.robot.Robot;
 
 public class Intake extends Command {
-
-    private IntakeThread intakeThread;
-
     public Intake() {
         requires(Robot.intaker);
     }
@@ -20,11 +17,12 @@ public class Intake extends Command {
     protected void execute() {
         if (Robot.oi.gamepad.getRawButton(6)) {
             Robot.intaker.activate();
+        } else if (Robot.oi.gamepad.getRawButton(5)) {
             Robot.intaker.startMotor();
         } else if (Robot.oi.gamepad.getRawButton(9)) {
-            Robot.intaker.pullIn();
-        } else if (Robot.oi.gamepad.getRawButton(10)) {
             Robot.intaker.stopMotor();
+        } else if (Robot.oi.gamepad.getRawButton(10)) {
+            Robot.intaker.pullIn();
         }
     }
 
