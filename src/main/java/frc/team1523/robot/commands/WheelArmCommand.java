@@ -3,9 +3,9 @@ package frc.team1523.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.team1523.robot.Robot;
 
-public class WheelIntakeCommand extends Command {
-    public WheelIntakeCommand() {
-        requires(Robot.wheelIntake);
+public class WheelArmCommand extends Command {
+    public WheelArmCommand() {
+        requires(Robot.wheelIntakeArm);
     }
 
     /**
@@ -14,11 +14,11 @@ public class WheelIntakeCommand extends Command {
 
     @Override
     protected void execute() {
-        double speed = Robot.oi.gamepad.getRawAxis(5);
+        double speed = Robot.oi.gamepad.getRawAxis(0);
         if (Math.abs(speed) >= 0.03) {
-            Robot.wheelIntake.setSpeed(squared(speed));
+            Robot.wheelIntakeArm.setSpeed(squared(speed));
         } else {
-            Robot.wheelIntake.setSpeed(0);
+            Robot.wheelIntakeArm.setSpeed(0);
         }
     }
 
