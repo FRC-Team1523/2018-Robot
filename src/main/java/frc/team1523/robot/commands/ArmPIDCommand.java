@@ -16,8 +16,8 @@ public class ArmPIDCommand extends PIDCommand { // This system extends PIDSubsys
 //    private double minAngle = 154.4;
 //    private double maxAngle = 289.2;
 
-    private double minAngle = 60.5;
-    private double maxAngle = 189;
+    private double minAngle = 65;
+    private double maxAngle = 186.2;
 
 //    private double switchPos = 196;
 //    private double scalePos = 277;
@@ -29,7 +29,7 @@ public class ArmPIDCommand extends PIDCommand { // This system extends PIDSubsys
     // P: 0.04, I: 0.003, D: 0.002
     public ArmPIDCommand(double startPoint) {
 //        super("ArmPIDCommand", 0.06, 0.003, 0.004);
-        super("ArmPIDCommand", 0.03, 0, 0);
+        super("ArmPIDCommand", 0.04, 0.002, 0.0001);
         getPIDController().setPercentTolerance(10);
 
         getPIDController().setContinuous(false);
