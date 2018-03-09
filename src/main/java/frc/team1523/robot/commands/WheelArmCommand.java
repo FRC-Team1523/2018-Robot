@@ -15,27 +15,29 @@ public class WheelArmCommand extends Command {
     @Override
     protected void execute() {
         double leftArmMove = Robot.oi.gamepad.getRawAxis(0);
-        double leftArmSpin = -Robot.oi.gamepad.getRawAxis(1);
+//        double leftArmSpin = -Robot.oi.gamepad.getRawAxis(1);
         if (Math.abs(leftArmMove) >= 0.03) {
+            Robot.wheelIntakeArm.setRight(squared(leftArmMove));
             Robot.wheelIntakeArm.setLeft(squared(leftArmMove));
         } else {
             Robot.wheelIntakeArm.setLeft(0);
         }
-        if (Math.abs(leftArmSpin) >= 0.03) {
-            Robot.wheelIntake.setLeft(squared(leftArmSpin));
-        } else {
-            Robot.wheelIntake.setLeft(0);
-        }
+//        if (Math.abs(leftArmSpin) >= 0.03) {
+//            Robot.wheelIntake.setLeft(squared(leftArmSpin));
+//        } else {
+//            Robot.wheelIntake.setLeft(0);
+//        }
 
-        double rightArmMove = -Robot.oi.gamepad.getRawAxis(4);
+//        double rightArmMove = -Robot.oi.gamepad.getRawAxis(4);
         double rightArmSpin = -Robot.oi.gamepad.getRawAxis(5);
-        if (Math.abs(rightArmMove) >= 0.03) {
-            Robot.wheelIntakeArm.setRight(squared(rightArmMove));
-        } else {
-            Robot.wheelIntakeArm.setRight(0);
-        }
+//        if (Math.abs(rightArmMove) >= 0.03) {
+//            Robot.wheelIntakeArm.setRight(squared(rightArmMove));
+//        } else {
+//            Robot.wheelIntakeArm.setRight(0);
+//        }
         if (Math.abs(rightArmSpin) >= 0.03) {
             Robot.wheelIntake.setRight(squared(rightArmSpin));
+            Robot.wheelIntake.setLeft(squared(rightArmSpin));
         } else {
             Robot.wheelIntake.setRight(0);
         }
