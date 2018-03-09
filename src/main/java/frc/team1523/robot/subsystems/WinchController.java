@@ -21,11 +21,14 @@ public class WinchController extends Subsystem {
     public void move(Joystick joystick, XboxController gamepad) {
         // Right up
         boolean trigger = joystick.getRawButton(1);
+        boolean reverse_trigger = joystick.getRawButton(8);
         boolean rightBumper = gamepad.getBumper(GenericHID.Hand.kRight);
         boolean leftBumper = gamepad.getBumper(GenericHID.Hand.kLeft);
         boolean backButton = gamepad.getRawButton(7);
         if (trigger) { // up
             winchSpark.set(WINCH_SPEED);
+        } else if (reverse_trigger) {
+            winchSpark.set(-WINCH_SPEED);
         } else {
             winchSpark.set(0.0);
         }
