@@ -12,5 +12,7 @@ public class PCMStickyClearCommand extends InstantCommand {
     @Override
     public synchronized void start() {
         Robot.compressor.clearAllPCMStickyFaults();
+        PowerDistributionPanel powerPanel = new PowerDistributionPanel();
+        powerPanel.clearStickyFaults();
     }
 }

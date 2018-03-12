@@ -41,6 +41,10 @@ public class Robot extends IterativeRobot {
     //    public static SetArmSetpoint armSetpointer;
     public static AHRS ahrs;
 
+    private static MatchData.OwnedSide ownedSwitchSide;
+
+    AutoDrive autoDrive;
+
     Command autonomousCommand;
     SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -74,23 +78,41 @@ public class Robot extends IterativeRobot {
             DriverStation.reportError("Error instantiating navX MXP:  " + ex.getMessage(), true);
         }
 
-        chooser.addObject("Drive forward", new AutoDrive(0.55, 100));
-        chooser.addObject("Grab open", new AutoGrab(AutoGrab.GrabState.kRelease));
-        chooser.addObject("Grab close", new AutoGrab(AutoGrab.GrabState.kGrab));
-        chooser.addObject("Turn 45", new AutoTurn(0.25, 45));
-        chooser.addObject("Turn 90", new AutoTurn(0.25, 90));
-        chooser.addObject("Turn 360", new AutoTurn(0.35, 360));
-        chooser.addObject("Arm Raise", new AutoRaise(200));
-        chooser.addObject("Sequence", new Sequential());
-        chooser.addObject("Center Cube", new AutoCenterCubeCommand(20));
-        chooser.addDefault("Nothing", null);
+        chooser.addObject("Drive forward", autoDrive);
+        chooser.addObject("Switch - Left start", new AutoSwitchSideLeft(0.4, 0.22));
+        chooser.addObject("Switch - Right start", new AutoSwitchSideRight(0.4, 0.22));
+        chooser.addObject("Auto drive - right", new AutoDumpStartRight(0.6, 100));
+        chooser.addObject("Auto drive - left", new AutoDumpStartLeft(0.6, 100));
+//        chooser.addObject("Grab open", new AutoGrab(AutoGrab.GrabState.kRelease));
+//        chooser.addObject("Grab close", new AutoGrab(AutoGrab.GrabState.kGrab));
+//        chooser.addObject("Turn 45", new AutoTurn(0.25, 45));
+//        chooser.addObject("Turn 90", new AutoTurn(0.25, 90));
+//        chooser.addObject("Turn 360", new AutoTurn(0.35, 360));
+//        chooser.addObject("Arm Raise", new AutoRaise(200));
+//        chooser.addObject("Sequence", new Sequential());
+//        chooser.addObject("Center Cube", new AutoCenterCubeCommand(20));
+        chooser.addDefault("Nothing", new WaitCommand(0));
         SmartDashboard.putData("Auto", chooser);
 
         armEncoder = new CTREMagneticEncoder(4);
         armPIDCommand = new ArmPIDCommand(armEncoder.getPWMAngle());
+
+        autoDrive = new AutoDrive(0.6, 100);
 //        armPIDCommand.setSetpoint(200);
 
 //        armSetpointer = new SetArmSetpoint(200);
+    }
+
+    public static MatchData.OwnedSide getOwnedSide() {
+        if (ownedSwitchSide == null) {
+            MatchData.OwnedSide side = MatchData.getOwnedSide(MatchData.GameFeature.SWITCH_NEAR);
+            if (side != MatchData.OwnedSide.UNKNOWN) {
+                ownedSwitchSide = side;
+            }
+            return side;
+        } else {
+            return ownedSwitchSide;
+        }
     }
 
     @Override
@@ -101,7 +123,7 @@ public class Robot extends IterativeRobot {
     @Override
     public void disabledPeriodic() {
         Scheduler.getInstance().run();
-        armPIDCommand.disable();
+//        armPIDCommand.disable();
     }
 
     @Override
@@ -112,12 +134,12 @@ public class Robot extends IterativeRobot {
         armPIDCommand.execute();
 
 
-        SmartDashboard.putNumber("Encoder Left", encoders.left.getDistance());
+        SmartDashboard.putNumber("Encoder left", encoders.left.getDistance());
         SmartDashboard.putNumber("Encoder Right", encoders.right.getDistance());
 
         SmartDashboard.putNumber("Angle", Robot.ahrs.getAngle());
 
-        SmartDashboard.putBoolean("Target", armPIDCommand.onTarget());
+//        SmartDashboard.putBoolean("Target", armPIDCommand.onTarget());
 
 //        double set = SmartDashboard.getNumber("Setpoint", 0.0);
 //        armPIDCommand.setSetpoint(set);
@@ -127,23 +149,26 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("Angle-Roll", ahrs.getAngle() / ahrs.getRoll());
 
         SmartDashboard.putNumber("Arm Angle", armEncoder.getPWMAngle());
-        SmartDashboard.putNumber("Setpoint", armPIDCommand.setpoint);
+///        SmartDashboard.putNumber("Setpoint", armPIDCommand.setpoint);
 
         SmartDashboard.putBoolean("Limit left", intaker.leftSwitch.get());
         SmartDashboard.putBoolean("Limit right", intaker.rightSwitch.get());
     }
 
     private void updateArmSetpoint() {
-        armPIDCommand.setSetpoint(armEncoder.getPWMAngle());
+//        armPIDCommand.setSetpoint(armEncoder.getPWMAngle());
     }
 
     @Override
     public void autonomousInit() {
         updateArmSetpoint();
-        armPIDCommand.enable();
+//        armPIDCommand.enable();
         //        autonomousCommand.start();
         autonomousCommand = chooser.getSelected();
         if (autonomousCommand != null) {
+            autonomousCommand.start();
+        } else {
+            autonomousCommand = autoDrive;
             autonomousCommand.start();
         }
     }
@@ -160,7 +185,7 @@ public class Robot extends IterativeRobot {
     @Override
     public void teleopInit() {
         updateArmSetpoint();
-        armPIDCommand.enable();
+//        armPIDCommand.enable();
     }
 
 
