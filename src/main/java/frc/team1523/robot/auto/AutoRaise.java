@@ -12,11 +12,12 @@ public class AutoRaise extends Command {
 
     @Override
     protected void initialize() {
-        Robot.armPIDCommand.setSetpoint(angle);
+//        Robot.armPIDCommand.setSetpoint(angle);
     }
 
     @Override
     public boolean isFinished() {
-        return Robot.armPIDCommand.onTarget();
+//        return Robot.armPIDCommand.onTarget();
+        return true;
     }
 }

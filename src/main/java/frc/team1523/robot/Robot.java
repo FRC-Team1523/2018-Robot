@@ -5,11 +5,17 @@ import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.command.WaitCommand;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.team1523.robot.auto.*;
-import frc.team1523.robot.commands.*;
+import frc.team1523.robot.auto.left.AutoSwitchSideLeft;
+import frc.team1523.robot.auto.right.AutoSwitchSideRight;
+import frc.team1523.robot.commands.ArmPIDCommand;
+import frc.team1523.robot.commands.PCMStickyClearCommand;
+import frc.team1523.robot.commands.ResetEncodersCommand;
 import frc.team1523.robot.subsystems.*;
+import openrio.powerup.MatchData;
 
 import static frc.team1523.robot.RobotMap.COMPRESSOR;
 
