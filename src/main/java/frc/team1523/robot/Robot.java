@@ -28,10 +28,8 @@ public class Robot extends IterativeRobot {
     public static ArmRaiser armRaiser;
     public static ArmGrabber armGrabber;
     public static Shifter shifter;
-    public static Intaker intaker;
     public static WinchLocker winchLocker;
     public static WheelIntake wheelIntake;
-    public static WheelArmSubsystem wheelIntakeArm;
     public static WinchController winchController;
     @SuppressWarnings("FieldCanBeLocal")
     public static Compressor compressor;
@@ -57,9 +55,7 @@ public class Robot extends IterativeRobot {
         encoders = new Encoders();
         armGrabber = new ArmGrabber();
         shifter = new Shifter();
-        intaker = new Intaker();
         wheelIntake = new WheelIntake();
-        wheelIntakeArm = new WheelArmSubsystem();
         winchController = new WinchController();
         winchLocker = new WinchLocker();
 
@@ -150,9 +146,6 @@ public class Robot extends IterativeRobot {
 
         SmartDashboard.putNumber("Arm Angle", armEncoder.getPWMAngle());
 ///        SmartDashboard.putNumber("Setpoint", armPIDCommand.setpoint);
-
-        SmartDashboard.putBoolean("Limit left", intaker.leftSwitch.get());
-        SmartDashboard.putBoolean("Limit right", intaker.rightSwitch.get());
     }
 
     private void updateArmSetpoint() {

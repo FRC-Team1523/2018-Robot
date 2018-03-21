@@ -6,8 +6,6 @@ public class Constants {
     private static double WHEEL_DIAMETER = 7.25;
     public static double WHEEL_REVOLUTION = (Math.PI * WHEEL_DIAMETER) / ENCODER_REVOLUTION;
 
-    public static double INTAKE_SPEED = 1.0;
-
     public static double ANALOG_BUMPER_DEADBAND = 0.03;
     public static double WINCH_SPEED = 1.0;
 
