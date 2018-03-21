@@ -10,7 +10,7 @@ import openrio.powerup.MatchData;
 public class AutoSwitchSideRight extends CommandGroup {
     public AutoSwitchSideRight(double driveSpeed, double turnSpeed) {
         requires(Robot.driveTrain);
-        requires(Robot.armGrabber);
+        requires(Robot.intakeGrabber);
 
         addSequential(new AutoDrive(driveSpeed, 192)); // Drive past switch
         addSequential(new AutoTurn(turnSpeed, -90)); // Turn toward switch

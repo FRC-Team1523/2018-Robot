@@ -4,9 +4,9 @@ import frc.team1523.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 
-public class ArmGrab extends Command {
-    public ArmGrab() {
-        requires(Robot.armGrabber);
+public class IntakeGrabCommand extends Command {
+    public IntakeGrabCommand() {
+        requires(Robot.intakeGrabber);
     }
 
     @Override
@@ -17,9 +17,9 @@ public class ArmGrab extends Command {
     @Override
     protected void execute() {
         if (Robot.oi.gamepad.getXButtonPressed()) {
-            Robot.armGrabber.grab();
+            Robot.intakeGrabber.grab();
         } else if (Robot.oi.gamepad.getBButtonPressed()) {
-            Robot.armGrabber.release();
+            Robot.intakeGrabber.release();
         }
     }
 
@@ -30,6 +30,6 @@ public class ArmGrab extends Command {
 
     @Override
     protected void end() {
-        Robot.armGrabber.cleanUp();
+        Robot.intakeGrabber.cleanUp();
     }
 }

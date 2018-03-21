@@ -26,7 +26,7 @@ public class Robot extends IterativeRobot {
     public static DriveTrain driveTrain;
     public static Encoders encoders;
     public static ArmRaiser armRaiser;
-    public static ArmGrabber armGrabber;
+    public static IntakeGrabber intakeGrabber;
     public static Shifter shifter;
     public static WinchLocker winchLocker;
     public static WheelIntake wheelIntake;
@@ -53,7 +53,7 @@ public class Robot extends IterativeRobot {
         driveTrain = new DriveTrain();
         armRaiser = new ArmRaiser();
         encoders = new Encoders();
-        armGrabber = new ArmGrabber();
+        intakeGrabber = new IntakeGrabber();
         shifter = new Shifter();
         wheelIntake = new WheelIntake();
         winchController = new WinchController();

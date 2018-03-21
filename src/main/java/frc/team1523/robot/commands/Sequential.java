@@ -1,8 +1,6 @@
 package frc.team1523.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import edu.wpi.first.wpilibj.command.WaitCommand;
 import frc.team1523.robot.Robot;
 import frc.team1523.robot.auto.AutoDrive;
 import frc.team1523.robot.auto.AutoTurn;
@@ -10,7 +8,7 @@ import frc.team1523.robot.auto.AutoTurn;
 public class Sequential extends CommandGroup {
     public Sequential() {
         requires(Robot.driveTrain);
-        requires(Robot.armGrabber);
+        requires(Robot.intakeGrabber);
 
         addSequential(new AutoDrive(0.35, 24));
         addSequential(new AutoTurn(0.35, -90));
