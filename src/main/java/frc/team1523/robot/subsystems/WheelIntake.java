@@ -20,6 +20,11 @@ public class WheelIntake extends Subsystem {
         setDefaultCommand(new WheelIntakeCommand());
     }
 
+    public void setSpeed(double value) {
+        intakeMotor1.set(value);
+        intakeMotor2.set(value);
+    }
+
     public void setLeft(double value) {
         intakeMotor1.set(value);
     }
