@@ -10,7 +10,7 @@ public class RobotMap {
     public static int DRIVE_RIGHT = 2;
 
     /// Intake motor
-    public static int INTAKE_MOTOR = 5;
+    public static int LIFTER_MOTOR = 5;
 
     public static int ARM_INTAKE_MOTOR_1 = 6;
     public static int ARM_INTAKE_MOTOR_2 = 7;
