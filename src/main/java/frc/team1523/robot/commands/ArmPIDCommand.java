@@ -45,7 +45,7 @@ public class ArmPIDCommand extends Command { // This system extends PIDSubsystem
         double leftBumper = Robot.oi.gamepad.getRawAxis(BUMPER_ANALOG_LEFT);
 
         if (rightBumper > 0.05) {
-            armSpark.set(-squared(rightBumper) * .65);
+            armSpark.set(-squared(rightBumper) * .85);
         } else if (leftBumper > 0.05) {
             armSpark.set(squared(leftBumper) * .55);
         }
