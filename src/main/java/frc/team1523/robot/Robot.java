@@ -84,12 +84,15 @@ public class Robot extends IterativeRobot {
         chooser.addObject("Auto drive - left", new AutoDumpStartLeft(0.6, 100));
 //        chooser.addObject("Grab open", new AutoGrab(AutoGrab.GrabState.kRelease));
 //        chooser.addObject("Grab close", new AutoGrab(AutoGrab.GrabState.kGrab));
-//        chooser.addObject("Turn 45", new AutoTurn(0.25, 45));
+        chooser.addObject("Turn 45", new AutoTurn(.7, 180));
 //        chooser.addObject("Turn 90", new AutoTurn(0.25, 90));
 //        chooser.addObject("Turn 360", new AutoTurn(0.35, 360));
 //        chooser.addObject("Arm Raise", new AutoRaise(200));
 //        chooser.addObject("Sequence", new Sequential());
 //        chooser.addObject("Center Cube", new AutoCenterCubeCommand(20));
+        chooser.addDefault("Launcher Left", new ForwardLaunchLeft(.7, 78.5, -15));
+        chooser.addDefault("Launcher Right", new ForwardLaunchRight(.7, 78.5, -15));
+
         chooser.addDefault("Nothing", new WaitCommand(0));
         SmartDashboard.putData("Auto", chooser);
 
@@ -97,6 +100,7 @@ public class Robot extends IterativeRobot {
         armPIDCommand = new ArmPIDCommand(armEncoder.getPWMAngle());
 
         autoDrive = new AutoDrive(0.6, 100);
+
 //        armPIDCommand.setSetpoint(200);
 
 //        armSetpointer = new SetArmSetpoint(200);
@@ -129,11 +133,6 @@ public class Robot extends IterativeRobot {
     public void robotPeriodic() {
         Scheduler.getInstance().run();
 
-        oi.gamepad.setRumble(GenericHID.RumbleType.kLeftRumble, .5);
-        oi.gamepad.setRumble(GenericHID.RumbleType.kRightRumble, .5);
-        oi.joystick.setRumble(GenericHID.RumbleType.kLeftRumble, .5);
-        oi.joystick.setRumble(GenericHID.RumbleType.kRightRumble, .5);
-
         // Not called automatically from PIDCommand
         armPIDCommand.execute();
 
@@ -142,6 +141,12 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("Encoder Right", encoders.right.getDistance());
 
         SmartDashboard.putNumber("Angle", Robot.ahrs.getAngle());
+//        ahrs.get
+//        SmartDashboard.putNumber("Ex", ahrs.getRssawGyroX());
+//        SmartDashboard.putNumber("p", ahrs.getPitch());
+//        SmartDashboard.putNumber("r", ahrs.getRoll());
+//        SmartDashboard.putNumber("y", ahrs.getYaw());
+//        ahrs.getRawGyroX
 
 //        SmartDashboard.putBoolean("Target", armPIDCommand.onTarget());
 
@@ -150,7 +155,7 @@ public class Robot extends IterativeRobot {
 //        SmartDashboard.putNumber("Pitch", ahrs.getPitch());
 //        SmartDashboard.putNumber("Yaw", ahrs.getYaw());
 //        SmartDashboard.putNumber("Roll", ahrs.getRoll());
-        SmartDashboard.putNumber("Angle-Roll", ahrs.getAngle() / ahrs.getRoll());
+//        SmartDashboard.putNumber("Angle-Roll", ahrs.getAngle() / ahrs.getRoll());
 
         SmartDashboard.putNumber("Arm Angle", armEncoder.getPWMAngle());
 ///        SmartDashboard.putNumber("Setpoint", armPIDCommand.setpoint);
