@@ -16,7 +16,7 @@ public class LifterCommand extends Command {
     protected void execute() {
         double speed = Robot.oi.gamepad.getRawAxis(1);
         if (Math.abs(speed) >= 0.03) {
-            Robot.lifter.setSpeed(squared(speed));
+            Robot.lifter.setSpeed(squared(speed*.9));
         } else {
             Robot.lifter.setSpeed(0);
         }
