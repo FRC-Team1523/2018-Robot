@@ -38,7 +38,7 @@ public class DriveTrain extends Subsystem {
 //        }
 //        limitedJoystickY += changeY;
 //        return limitedJoystickY;
-        double limit = 0.015;
+        double limit = 0.017;
         if (y > 0) {
             double changeY = y - limitedJoystickYPos;
             if (changeY > limit) {

@@ -51,6 +51,7 @@ public class Robot extends IterativeRobot {
     @Override
     public void robotInit() {
         oi = new OI();
+
         driveTrain = new DriveTrain();
         armRaiser = new ArmRaiser();
         encoders = new Encoders();
@@ -127,6 +128,11 @@ public class Robot extends IterativeRobot {
     @Override
     public void robotPeriodic() {
         Scheduler.getInstance().run();
+
+        oi.gamepad.setRumble(GenericHID.RumbleType.kLeftRumble, .5);
+        oi.gamepad.setRumble(GenericHID.RumbleType.kRightRumble, .5);
+        oi.joystick.setRumble(GenericHID.RumbleType.kLeftRumble, .5);
+        oi.joystick.setRumble(GenericHID.RumbleType.kRightRumble, .5);
 
         // Not called automatically from PIDCommand
         armPIDCommand.execute();
