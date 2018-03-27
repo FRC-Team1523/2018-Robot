@@ -16,9 +16,9 @@ public class IntakeGrabCommand extends Command {
 
     @Override
     protected void execute() {
-        if (Robot.oi.gamepad.getXButtonPressed()) {
+        if (Robot.oi.gamepad.getBButtonPressed()) {
             Robot.intakeGrabber.grab();
-        } else if (Robot.oi.gamepad.getBButtonPressed()) {
+        } else if (Robot.oi.gamepad.getXButtonPressed()) {
             Robot.intakeGrabber.release();
         }
     }

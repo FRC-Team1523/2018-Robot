@@ -26,7 +26,7 @@ public class AutoSwitchSideLeft extends CommandGroup {
                     command = new AutoFar(driveSpeed, turnSpeed);
                     command.start();
                 }
-            }
+             }
 
             @Override
             protected boolean isFinished() {
