@@ -27,7 +27,7 @@ public class LifterCommandPID extends PIDCommand { // This system extends PIDSub
     // P: 0.04, I: 0.003, D: 0.002
     public LifterCommandPID(double startPoint) {
 //        super("LifterCommand", 0.06, 0.003, 0.004);
-        super("LifterCommand", 0, 0, 0);
+        super("LifterCommand", 0.6, 0, 0);
         getPIDController().setPercentTolerance(10);
 
         getPIDController().setContinuous(false);
