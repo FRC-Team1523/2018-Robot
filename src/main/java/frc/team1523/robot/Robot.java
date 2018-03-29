@@ -37,6 +37,7 @@ public class Robot extends IterativeRobot {
     public static Compressor compressor;
 
     public static CTREMagneticEncoder armEncoder;
+    public static CTREMagneticEncoder lifterEncoder;
     public static ArmPIDCommand armPIDCommand;
     //    public static SetArmSetpoint armSetpointer;
     public static AHRS ahrs;
@@ -100,6 +101,8 @@ public class Robot extends IterativeRobot {
         armEncoder = new CTREMagneticEncoder(4);
         armPIDCommand = new ArmPIDCommand(armEncoder.getPWMAngle());
 
+        lifterEncoder = new CTREMagneticEncoder(7);
+
         autoDrive = new AutoDrive(0.6, 100);
 
 //        armPIDCommand.setSetpoint(200);
@@ -159,6 +162,7 @@ public class Robot extends IterativeRobot {
 //        SmartDashboard.putNumber("Angle-Roll", ahrs.getAngle() / ahrs.getRoll());
 
         SmartDashboard.putNumber("Arm Angle", armEncoder.getPWMAngle());
+        SmartDashboard.putNumber("Lifter Angle", lifterEncoder.getPWMAngle());
 ///        SmartDashboard.putNumber("Setpoint", armPIDCommand.setpoint);
     }
 
