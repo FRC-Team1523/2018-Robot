@@ -4,6 +4,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
 import frc.team1523.robot.Robot;
 
+/**
+ * Autonomous group, 2 cube, left start
+ * Delivers cube to switch directly ahead and picks up cube from stack and delivers
+ */
 public class ForwardLaunchLeft extends CommandGroup {
     public ForwardLaunchLeft(double speed, double distance, double distance2) {
         requires(Robot.driveTrain);

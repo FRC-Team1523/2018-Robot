@@ -3,6 +3,9 @@ package frc.team1523.robot.auto;
 import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.team1523.robot.Robot;
 
+/**
+ * Sets raw power to intake lifter
+ */
 public class LifterAuto extends InstantCommand {
     public enum LifterState {
         kUp,

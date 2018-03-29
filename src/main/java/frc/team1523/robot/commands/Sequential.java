@@ -11,9 +11,9 @@ public class Sequential extends CommandGroup {
         requires(Robot.intakeGrabber);
 
         addSequential(new AutoDrive(0.35, 24));
-        addSequential(new AutoTurn(0.35, -90));
+        addSequential(new AutoTurn(-90));
         addSequential(new AutoDrive(0.35, 10));
-        addSequential(new AutoTurn(0.35, -90));
+        addSequential(new AutoTurn(-90));
 
 //        addSequential(new AutoDrive(0.3, 60));
 //        addSequential(new AutoRaise(200));

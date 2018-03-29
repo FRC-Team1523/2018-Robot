@@ -5,15 +5,18 @@ import frc.team1523.robot.Robot;
 
 import static frc.team1523.robot.Constants.*;
 
+
+/**
+ * Turn robot a set amount of degrees at a fixed speed using navx data. DO NOT USE USE
+ * WARNING: THIS USES INEXPLICABLE BLACK MAGIC DO NOT USE UNLESS YOU KNOW WHAT YOU ARE DOING
+ */
 public class AutoTurn extends Command {
     private double degrees;
-    private double speed;
     private double start;
     private boolean finished;
 
-    public AutoTurn(double speed, double degrees) {
+    public AutoTurn(double degrees) {
         requires(Robot.driveTrain);
-        this.speed = speed;
         this.start = Robot.ahrs.getAngle();
         this.degrees = degrees;
         finished = false;

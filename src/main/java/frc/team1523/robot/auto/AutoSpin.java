@@ -4,9 +4,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.team1523.robot.Robot;
 
 /**
- * Automatically drive the robot a given distance at a given speed
- */
-public class AutoSpin extends Command {
+ * Autonomously turn bot a set amount of degrees at a set speed using encoders.
+*/
+ public class AutoSpin extends Command {
     private double distance;
     private double speed;
     private boolean finished;

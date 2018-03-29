@@ -5,7 +5,8 @@ import frc.team1523.robot.Robot;
 import openrio.powerup.MatchData;
 
 /**
- * Automatically drive the robot a given distance at a given speed
+ * Automatically drive the robot a given distance at a given speed, stupid auto
+ * TODO: Remove
  */
 public class AutoDumpStartRight extends Command {
     private double distance;

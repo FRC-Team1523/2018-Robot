@@ -3,6 +3,9 @@ package frc.team1523.robot.auto;
 import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.team1523.robot.Robot;
 
+/**
+ * Sets state of the intake arms
+ */
 public class AutoGrab extends InstantCommand {
     public enum GrabState {
         kGrab,

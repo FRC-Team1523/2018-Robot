@@ -84,7 +84,7 @@ public class Robot extends IterativeRobot {
         chooser.addObject("Auto drive - left", new AutoDumpStartLeft(0.6, 100));
 //        chooser.addObject("Grab open", new AutoGrab(AutoGrab.GrabState.kRelease));
 //        chooser.addObject("Grab close", new AutoGrab(AutoGrab.GrabState.kGrab));
-        chooser.addObject("Turn 45", new AutoTurn(.7, 180));
+        chooser.addObject("Turn 45", new AutoTurn(180));
 //        chooser.addObject("Turn 90", new AutoTurn(0.25, 90));
 //        chooser.addObject("Turn 360", new AutoTurn(0.35, 360));
 //        chooser.addObject("Arm Raise", new AutoRaise(200));

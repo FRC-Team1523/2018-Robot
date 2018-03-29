@@ -10,7 +10,7 @@ class AutoFar extends CommandGroup {
         requires(Robot.driveTrain);
 
         addSequential(new AutoDrive(driveSpeed, 216)); // Drive to switch midpoint
-        addSequential(new AutoTurn(turnSpeed, 90)); // Turn to face switch
+        addSequential(new AutoTurn(90)); // Turn to face switch
         addSequential(new AutoDrive(driveSpeed, 22)); // Drive into switch
     }
 }

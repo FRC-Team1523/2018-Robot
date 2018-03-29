@@ -5,6 +5,7 @@ import frc.team1523.robot.Robot;
 
 /**
  * Automatically drive the robot a given distance at a given speed
+ * TODO: Use both encoders
  */
 public class AutoDrive extends Command {
     private double distance;

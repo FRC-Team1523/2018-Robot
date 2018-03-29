@@ -13,7 +13,7 @@ public class AutoSwitchSideLeft extends CommandGroup {
         requires(Robot.intakeGrabber);
 
         addSequential(new AutoDrive(driveSpeed, 192)); // Drive past switch
-        addSequential(new AutoTurn(turnSpeed, 90)); // Turn toward switch
+        addSequential(new AutoTurn(90)); // Turn toward switch
         addSequential(new Command() {
             Command command;
             @Override

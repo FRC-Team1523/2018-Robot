@@ -3,6 +3,9 @@ package frc.team1523.robot.auto;
 import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.team1523.robot.Robot;
 
+/**
+ * Sets raw power intake wheels
+ */
 public class IntakeAuto extends InstantCommand {
     public enum GrabState {
         kLaunch,
