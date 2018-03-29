@@ -62,7 +62,7 @@ public class Robot extends IterativeRobot {
         intakeGrabber = new IntakeGrabber();
         shifter = new Shifter();
         wheelIntake = new WheelIntake();
-//        lifter = new Lifter();
+        lifter = new Lifter();
         winchController = new WinchController();
         winchLocker = new WinchLocker();
 
