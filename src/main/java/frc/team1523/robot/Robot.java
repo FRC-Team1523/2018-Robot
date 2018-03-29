@@ -92,8 +92,21 @@ public class Robot extends IterativeRobot {
 //        chooser.addObject("Arm Raise", new AutoRaise(200));
 //        chooser.addObject("Sequence", new Sequential());
 //        chooser.addObject("Center Cube", new AutoCenterCubeCommand(20));
-        chooser.addDefault("Launcher Left", new ForwardLaunchLeft(.7, 78.5, -15));
-        chooser.addDefault("Launcher Right", new ForwardLaunchRight(.7, 78.5, -15));
+        chooser.addObject("Launcher Left", new ForwardLaunchLeft(.7, 78.5, -15));
+        chooser.addObject("Launcher Right", new ForwardLaunchRight(.7, 78.5, -15));
+
+//        new AutoSideWrapper();
+        chooser.addObject("Left magic", new AutoSideWrapper(
+                new ForwardLaunchLeft(.7, 78.5, -15),
+                new AutoDrive(0.6, 100),
+                MatchData.GameFeature.SWITCH_NEAR
+        ));
+
+        chooser.addObject("Right magic", new AutoSideWrapper(
+                new AutoDrive(0.6, 100),
+                new ForwardLaunchRight(.7, 78.5, -15),
+                MatchData.GameFeature.SWITCH_NEAR
+        ));
 
         chooser.addDefault("Nothing", new WaitCommand(0));
         SmartDashboard.putData("Auto", chooser);

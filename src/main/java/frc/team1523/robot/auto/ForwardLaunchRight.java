@@ -15,7 +15,7 @@ public class ForwardLaunchRight extends CommandGroup {
         requires(Robot.wheelIntake);
 
         addSequential(new AutoDrive(speed, distance));
-        addSequential(new WaitCommand(.8));
+        addSequential(new WaitCommand(.7));
         addSequential(new IntakeAuto(IntakeAuto.GrabState.kLaunch));
         addSequential(new WaitCommand(.5));
         addSequential(new IntakeAuto(IntakeAuto.GrabState.kStop));
@@ -27,7 +27,7 @@ public class ForwardLaunchRight extends CommandGroup {
 
 
         addSequential(new LifterAuto(LifterAuto.LifterState.kDown));
-        addSequential(new WaitCommand(.32));
+        addSequential(new WaitCommand(.22));
 
         addSequential(new LifterAuto(LifterAuto.LifterState.kStop));
         addSequential(new IntakeAuto(IntakeAuto.GrabState.kGrab));
@@ -38,17 +38,21 @@ public class ForwardLaunchRight extends CommandGroup {
         addSequential(new AutoDrive(speed, distance2));
 
         addSequential(new WaitCommand(.5));
-        addSequential(new AutoSpin(.75, -20));
+        addSequential(new AutoSpin(.75, -9));
 
         // Raise
         addSequential(new LifterAuto(LifterAuto.LifterState.kUp));
         addSequential(new WaitCommand(.9));
         addSequential(new LifterAuto(LifterAuto.LifterState.kStop));
 
+        // Forward and launch
+
         addSequential(new AutoDrive(speed, 18));
         addSequential(new WaitCommand(.8));
         addSequential(new IntakeAuto(IntakeAuto.GrabState.kLaunch));
         addSequential(new WaitCommand(.5));
         addSequential(new IntakeAuto(IntakeAuto.GrabState.kStop));
+
+        // Reverse (three cube)
     }
 }

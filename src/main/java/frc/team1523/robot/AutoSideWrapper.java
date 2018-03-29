@@ -1,4 +1,4 @@
-package frc.team1523.robot.components;
+package frc.team1523.robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 import openrio.powerup.MatchData;
