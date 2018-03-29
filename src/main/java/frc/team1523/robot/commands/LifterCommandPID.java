@@ -14,8 +14,8 @@ public class LifterCommandPID extends PIDCommand { // This system extends PIDSub
 
     //    private double minAngle = 154.4;
 //    private double maxAngle = 289.2;
-    private double minAngle = 62;
-    private double maxAngle = 186.2;
+    private double minAngle = 56;
+    private double maxAngle = 293;
 
 //    private double switchPos = 196;
 //    private double scalePos = 277;
@@ -34,7 +34,7 @@ public class LifterCommandPID extends PIDCommand { // This system extends PIDSub
 
         setInputRange(minAngle, maxAngle);
 
-        getPIDController().setOutputRange(-.4, .7);
+        getPIDController().setOutputRange(-1, 1);
 
         getPIDController().setSetpoint(startPoint);
         setpoint = startPoint;
@@ -62,7 +62,7 @@ public class LifterCommandPID extends PIDCommand { // This system extends PIDSub
     }
 
     protected double returnPIDInput() {
-        return Robot.armEncoder.getPWMAngle();
+        return Robot.lifterEncoder.getPWMAngle();
     }
 
     protected void usePIDOutput(double output) {
@@ -74,6 +74,8 @@ public class LifterCommandPID extends PIDCommand { // This system extends PIDSub
         SmartDashboard.putData(this);
 
         double input = Robot.oi.gamepad.getRawAxis(1);
+
+        System.out.println(setpoint);
 
         if (Math.abs(input) > 0.05) {
             setSetpoint(setpoint + input);
