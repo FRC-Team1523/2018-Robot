@@ -7,7 +7,7 @@ import static frc.team1523.robot.Constants.*;
 
 
 /**
- * Turn robot a set amount of degrees at a fixed speed using navx data. DO NOT USE USE
+ * Turn robot a set amount of degrees at a fixed speed using navx data. DO NOT USE
  * WARNING: THIS USES INEXPLICABLE BLACK MAGIC DO NOT USE UNLESS YOU KNOW WHAT YOU ARE DOING
  */
 public class AutoTurn extends Command {
