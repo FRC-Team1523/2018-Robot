@@ -12,6 +12,7 @@ import frc.team1523.robot.auto.*;
 import frc.team1523.robot.auto.left.AutoSwitchSideLeft;
 import frc.team1523.robot.auto.right.AutoSwitchSideRight;
 import frc.team1523.robot.commands.ArmPIDCommand;
+import frc.team1523.robot.commands.LifterCommandPID;
 import frc.team1523.robot.commands.PCMStickyClearCommand;
 import frc.team1523.robot.commands.ResetEncodersCommand;
 import frc.team1523.robot.components.CTREMagneticEncoder;
@@ -32,10 +33,12 @@ public class Robot extends IterativeRobot {
     public static WinchLocker winchLocker;
     public static WheelIntake wheelIntake;
     public static Lifter lifter;
+    public static LifterCommandPID lifterPID;
     public static WinchController winchController;
     @SuppressWarnings("FieldCanBeLocal")
     public static Compressor compressor;
 
+    public static CTREMagneticEncoder lifterEncoder;
     public static CTREMagneticEncoder armEncoder;
     public static ArmPIDCommand armPIDCommand;
     //    public static SetArmSetpoint armSetpointer;
@@ -59,7 +62,7 @@ public class Robot extends IterativeRobot {
         intakeGrabber = new IntakeGrabber();
         shifter = new Shifter();
         wheelIntake = new WheelIntake();
-        lifter = new Lifter();
+//        lifter = new Lifter();
         winchController = new WinchController();
         winchLocker = new WinchLocker();
 
@@ -100,6 +103,10 @@ public class Robot extends IterativeRobot {
         armEncoder = new CTREMagneticEncoder(4);
         armPIDCommand = new ArmPIDCommand(armEncoder.getPWMAngle());
 
+        lifterEncoder = new CTREMagneticEncoder(7);
+        lifterPID = new LifterCommandPID(armEncoder.getPWMAngle());
+
+
         autoDrive = new AutoDrive(0.6, 100);
 
 //        armPIDCommand.setSetpoint(200);
@@ -136,6 +143,7 @@ public class Robot extends IterativeRobot {
 
         // Not called automatically from PIDCommand
         armPIDCommand.execute();
+        lifterPID.execute();
 
 
         SmartDashboard.putNumber("Encoder left", encoders.left.getDistance());
@@ -159,6 +167,7 @@ public class Robot extends IterativeRobot {
 //        SmartDashboard.putNumber("Angle-Roll", ahrs.getAngle() / ahrs.getRoll());
 
         SmartDashboard.putNumber("Arm Angle", armEncoder.getPWMAngle());
+        SmartDashboard.putNumber("Lifter Angle", lifterEncoder.getPWMAngle());
 ///        SmartDashboard.putNumber("Setpoint", armPIDCommand.setpoint);
     }
 
