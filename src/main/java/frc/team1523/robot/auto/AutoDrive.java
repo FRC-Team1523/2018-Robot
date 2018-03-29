@@ -9,13 +9,15 @@ import frc.team1523.robot.Robot;
  */
 public class AutoDrive extends Command {
     private double distance;
-    private double speed;
+    private double leftSpeed;
+    private double rightSpeed;
     private boolean finished;
 
     public AutoDrive(double speed, double distance) {
         requires(Robot.driveTrain);
         this.distance = distance;
-        this.speed = speed;
+        this.leftSpeed = speed;
+        this.rightSpeed = speed;
         finished = false;
     }
 
@@ -26,25 +28,58 @@ public class AutoDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        double rightEncoder = Robot.encoders.right.getDistance();
+        double leftEncoder = Robot.encoders.left.getDistance();
+
         // Drive Backwards
         if (distance < 0) {
+            boolean rightFinished = true;
+            boolean leftFinished = true;
+
             // If the encoders have not reached the right distance
-            if (Robot.encoders.right.getDistance() > distance) {
+            if (rightEncoder > distance) {
                 // Drive backwards
-                Robot.driveTrain.drive(-speed, -speed);
-            } else {
-                //Stop
-                finished = true;
+                rightFinished = false;
             }
+            if (leftEncoder > distance) {
+                leftFinished = false;
+            }
+
+            if (leftEncoder > rightEncoder) {
+                leftSpeed *= -.05;
+                rightSpeed *= .05;
+            }
+
+            if (leftFinished && rightFinished) {
+                finished = true;
+            } else {
+                Robot.driveTrain.drive(-leftSpeed, -rightSpeed);
+            }
+
             // Drive Forwards
         } else {
             // If the encoders have not reached the right distance
-            if (Robot.encoders.left.getDistance() < distance) {
-                // Drive forwards
-                Robot.driveTrain.drive(speed, speed);
-            } else {
-                // Stop
+            boolean rightFinished = true;
+            boolean leftFinished = true;
+
+            // If the encoders have not reached the right distance
+            if (rightEncoder > distance) {
+                // Drive backwards
+                rightFinished = false;
+            }
+            if (leftEncoder > distance) {
+                leftFinished = false;
+            }
+
+            if (leftEncoder > rightEncoder) {
+                leftSpeed *= .05;
+                rightSpeed *= -.05;
+            }
+
+            if (leftFinished && rightFinished) {
                 finished = true;
+            } else {
+                Robot.driveTrain.drive(-leftSpeed, -rightSpeed);
             }
         }
     }
