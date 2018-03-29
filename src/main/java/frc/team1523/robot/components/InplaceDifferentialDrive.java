@@ -1,4 +1,4 @@
-package frc.team1523.robot;
+package frc.team1523.robot.components;
 
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.drive.RobotDriveBase;

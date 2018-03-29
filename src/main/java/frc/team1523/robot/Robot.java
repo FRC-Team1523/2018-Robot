@@ -14,6 +14,7 @@ import frc.team1523.robot.auto.right.AutoSwitchSideRight;
 import frc.team1523.robot.commands.ArmPIDCommand;
 import frc.team1523.robot.commands.PCMStickyClearCommand;
 import frc.team1523.robot.commands.ResetEncodersCommand;
+import frc.team1523.robot.components.CTREMagneticEncoder;
 import frc.team1523.robot.subsystems.*;
 import openrio.powerup.MatchData;
 

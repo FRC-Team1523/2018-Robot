@@ -1,4 +1,4 @@
-package frc.team1523.robot;
+package frc.team1523.robot.components;
 
 //import org.usfirst.frc1523.TestRobot.Robot;
 //import org.usfirst.frc1523.TestRobot.RobotMap;
