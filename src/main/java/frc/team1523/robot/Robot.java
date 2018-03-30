@@ -43,7 +43,9 @@ public class Robot extends IterativeRobot {
 
     private static MatchData.OwnedSide ownedSwitchSide;
 
-    AutoDrive autoDrive;
+//    AutoDrive autoDrive;
+
+    AutoSideWrapper magicRight;
 
     Command autonomousCommand;
     SendableChooser<Command> chooser = new SendableChooser<>();
@@ -78,7 +80,7 @@ public class Robot extends IterativeRobot {
             DriverStation.reportError("Error instantiating navX MXP:  " + ex.getMessage(), true);
         }
 
-        chooser.addDefault("Drive forward", autoDrive);
+        chooser.addDefault("Drive forward", new AutoDrive(0.6, 100));
         chooser.addObject("Switch - Left start", new AutoSwitchSideLeft(0.4, 0.22));
         chooser.addObject("Switch - Right start", new AutoSwitchSideRight(0.4, 0.22));
         chooser.addObject("Auto drive - right", new AutoDumpStartRight(0.6, 100));
@@ -108,12 +110,12 @@ public class Robot extends IterativeRobot {
                 MatchData.GameFeature.SWITCH_NEAR
         ));
 
-
-        chooser.addObject("Right magic", new AutoSideWrapper(
+        magicRight = new AutoSideWrapper(
                 new AutoDrive(0.6, 100),
                 new ForwardLaunchRight(.7, 78.5, -15),
                 MatchData.GameFeature.SWITCH_NEAR
-        ));
+        );
+        chooser.addObject("Right magic", magicRight);
 
         chooser.addObject("Nothing", null);
         SmartDashboard.putData("Auto", chooser);
@@ -123,7 +125,7 @@ public class Robot extends IterativeRobot {
 
         lifterEncoder = new CTREMagneticEncoder(7);
 
-        autoDrive = new AutoDrive(0.6, 100);
+//        autoDrive = new AutoDrive(0.6, 100);
 
 //        armPIDCommand.setSetpoint(200);
 
@@ -196,11 +198,10 @@ public class Robot extends IterativeRobot {
 //        armPIDCommand.enable();
         //        autonomousCommand.start();
         autonomousCommand = chooser.getSelected();
-        System.out.println(autonomousCommand);
         if (autonomousCommand == null) {
-            autonomousCommand = autoDrive;
-            autonomousCommand.start();
+            autonomousCommand = magicRight;
         }
+        autonomousCommand.start();
     }
 
     /**
