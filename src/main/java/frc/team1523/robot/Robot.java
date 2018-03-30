@@ -5,7 +5,6 @@ import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.command.WaitCommand;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.team1523.robot.auto.*;
@@ -79,7 +78,7 @@ public class Robot extends IterativeRobot {
             DriverStation.reportError("Error instantiating navX MXP:  " + ex.getMessage(), true);
         }
 
-        chooser.addObject("Drive forward", autoDrive);
+        chooser.addDefault("Drive forward", autoDrive);
         chooser.addObject("Switch - Left start", new AutoSwitchSideLeft(0.4, 0.22));
         chooser.addObject("Switch - Right start", new AutoSwitchSideRight(0.4, 0.22));
         chooser.addObject("Auto drive - right", new AutoDumpStartRight(0.6, 100));
@@ -109,13 +108,14 @@ public class Robot extends IterativeRobot {
                 MatchData.GameFeature.SWITCH_NEAR
         ));
 
+
         chooser.addObject("Right magic", new AutoSideWrapper(
                 new AutoDrive(0.6, 100),
                 new ForwardLaunchRight(.7, 78.5, -15),
                 MatchData.GameFeature.SWITCH_NEAR
         ));
 
-        chooser.addDefault("Nothing", new WaitCommand(0));
+        chooser.addObject("Nothing", null);
         SmartDashboard.putData("Auto", chooser);
 
         armEncoder = new CTREMagneticEncoder(4);
@@ -196,9 +196,8 @@ public class Robot extends IterativeRobot {
 //        armPIDCommand.enable();
         //        autonomousCommand.start();
         autonomousCommand = chooser.getSelected();
-        if (autonomousCommand != null) {
-            autonomousCommand.start();
-        } else {
+        System.out.println(autonomousCommand);
+        if (autonomousCommand == null) {
             autonomousCommand = autoDrive;
             autonomousCommand.start();
         }
