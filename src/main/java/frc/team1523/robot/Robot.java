@@ -97,10 +97,15 @@ public class Robot extends IterativeRobot {
         chooser.addObject("Launcher Center Right", new ForwardLaunchCenterRight(.6, 78.5, -15));
         chooser.addObject("Launcher Center Left", new ForwardLaunchCenterLeft(.6, 78.5, -15));
 
-//        new AutoSideWrapper();
         chooser.addObject("Left magic", new AutoSideWrapper(
                 new ForwardLaunchLeft(.7, 78.5, -15),
                 new AutoDrive(0.6, 100),
+                MatchData.GameFeature.SWITCH_NEAR
+        ));
+
+        chooser.addObject("Center magic", new AutoSideWrapper(
+                new AutoDrive(0.6, 100),
+                new ForwardLaunchCenterRight(.6, 78.5, -15),
                 MatchData.GameFeature.SWITCH_NEAR
         ));
 
