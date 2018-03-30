@@ -105,7 +105,7 @@ public class Robot extends IterativeRobot {
         ));
 
         chooser.addObject("Center magic", new AutoSideWrapper(
-                new AutoDrive(0.6, 100),
+                new AutoApproachRight(.6),
                 new ForwardLaunchCenterRight(.6, 78.5, -15),
                 MatchData.GameFeature.SWITCH_NEAR
         ));
