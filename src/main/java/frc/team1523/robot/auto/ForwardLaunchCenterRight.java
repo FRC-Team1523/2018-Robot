@@ -22,8 +22,10 @@ public class ForwardLaunchCenterRight extends CommandGroup {
 
         // Last leg
         addSequential(new AutoSpin(.75, 8.6));
-        addSequential(new AutoDrive(speed, 30));
-        addSequential(new WaitCommand(.15));
+        addSequential(new AutoDrive(speed, 35));
+
+//        addSequential(new AutoDrive(speed, 30));
+//        addSequential(new WaitCommand(.15));
 
         // Launch
         addSequential(new IntakeAuto(IntakeAuto.GrabState.kLaunch));
