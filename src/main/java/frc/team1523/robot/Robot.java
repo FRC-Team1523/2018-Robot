@@ -116,6 +116,7 @@ public class Robot extends IterativeRobot {
                 MatchData.GameFeature.SWITCH_NEAR
         );
         chooser.addObject("Right magic", magicRight);
+        chooser.addObject("Short", new AutoDrive(0.6, 400));
 
         chooser.addObject("Nothing", null);
         SmartDashboard.putData("Auto", chooser);
@@ -197,10 +198,13 @@ public class Robot extends IterativeRobot {
         updateArmSetpoint();
 //        armPIDCommand.enable();
         //        autonomousCommand.start();
-        autonomousCommand = chooser.getSelected();
-        if (autonomousCommand == null) {
-            autonomousCommand = magicRight;
-        }
+//        autonomousCommand = chooser.getSelected();
+//        if (autonomousCommand == null) {
+//            autonomousCommand = magicRight;
+//        }
+//        autonomousCommand = new AutoDrive(0.6, 100);
+        autonomousCommand = magicRight;
+//        autonomousCommand = new AutoDrive(0.6, 400);
         autonomousCommand.start();
     }
 

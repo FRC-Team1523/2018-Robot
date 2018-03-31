@@ -12,6 +12,11 @@ public class ForwardLaunchCenterRight extends CommandGroup {
     public ForwardLaunchCenterRight(double speed, double distance, double distance2) {
         requires(Robot.driveTrain);
         requires(Robot.wheelIntake);
+        requires(Robot.intakeGrabber);
+
+        // Hold intake up
+
+        addSequential(new LifterAutoPowered(LifterAutoPowered.LifterState.kUp, 0.15));
 
         // Forward and move right
         addSequential(new AutoDrive(speed, 18));
@@ -36,12 +41,12 @@ public class ForwardLaunchCenterRight extends CommandGroup {
         addSequential(new AutoDrive(speed, distance2));
         addSequential(new WaitCommand(.7));
 
-        addSequential(new AutoSpin(.7, 6.9));
-
         // Drop intake
         addSequential(new LifterAuto(LifterAuto.LifterState.kDown));
         addSequential(new WaitCommand(.32));
         addSequential(new LifterAuto(LifterAuto.LifterState.kStop));
+        addSequential(new WaitCommand(.32));
+
 
         // Drive to pyramid
         addSequential(new AutoDrive(speed, 7));
@@ -60,7 +65,7 @@ public class ForwardLaunchCenterRight extends CommandGroup {
         addSequential(new WaitCommand(.7));
 
         // Turn to face switch
-        addSequential(new AutoSpin(.7, -7.9));
+        addSequential(new AutoSpin(.7, -9));
         // Raise
         addSequential(new LifterAuto(LifterAuto.LifterState.kUp));
         addSequential(new WaitCommand(.9));

@@ -21,7 +21,8 @@ public class AutoGrab extends InstantCommand {
 
     @Override
     protected void initialize() {
-        if (state == GrabState.kGrab) {
+        // Backward
+        if (state == GrabState.kRelease) {
             Robot.intakeGrabber.grab();
         } else {
             Robot.intakeGrabber.release();

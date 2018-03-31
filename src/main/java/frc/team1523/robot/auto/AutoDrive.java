@@ -31,6 +31,7 @@ public class AutoDrive extends Command {
             // If the encoders have not reached the right distance
             if (Robot.encoders.right.getDistance() > distance) {
                 // Drive backwards
+//                Robot.driveTrain.drive(-speed * 1.076, -speed);
                 Robot.driveTrain.drive(-speed, -speed);
             } else {
                 //Stop
@@ -41,6 +42,7 @@ public class AutoDrive extends Command {
             // If the encoders have not reached the right distance
             if (Robot.encoders.left.getDistance() < distance) {
                 // Drive forwards
+//                Robot.driveTrain.drive(speed * 1.076, speed);
                 Robot.driveTrain.drive(speed, speed);
             } else {
                 // Stop
@@ -57,7 +59,7 @@ public class AutoDrive extends Command {
     // Called once after isFinished returns true
     protected void end() {
         Robot.driveTrain.stopMotors();
-        Robot.driveTrain.reset();
+//        Robot.driveTrain.reset();
     }
 
     // Called when another command which requires one or more of the same

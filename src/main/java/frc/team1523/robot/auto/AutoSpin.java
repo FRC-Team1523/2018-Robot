@@ -5,8 +5,8 @@ import frc.team1523.robot.Robot;
 
 /**
  * Autonomously turn bot a set amount of degrees at a set speed using encoders.
-*/
- public class AutoSpin extends Command {
+ */
+public class AutoSpin extends Command {
     private double distance;
     private double speed;
     private boolean finished;
@@ -30,7 +30,9 @@ import frc.team1523.robot.Robot;
             // If the encoders have not reached the right distance
             if (Robot.encoders.left.getDistance() > distance) {
                 // Drive backwards
+//                Robot.driveTrain.drive(speed * 1.076, -speed);
                 Robot.driveTrain.drive(speed, -speed);
+
             } else {
                 //Stop
                 finished = true;
@@ -40,6 +42,7 @@ import frc.team1523.robot.Robot;
             // If the encoders have not reached the right distance
             if (Robot.encoders.left.getDistance() < distance) {
                 // Drive forwards
+//                Robot.driveTrain.drive(-speed * 1.076, speed);
                 Robot.driveTrain.drive(-speed, speed);
             } else {
                 // Stop
