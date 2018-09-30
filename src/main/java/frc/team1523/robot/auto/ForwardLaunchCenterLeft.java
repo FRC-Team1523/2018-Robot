@@ -63,7 +63,6 @@ public class ForwardLaunchCenterLeft extends CommandGroup {
         // Raise
         addSequential(new LifterAuto(LifterAuto.LifterState.kUp));
         addSequential(new WaitCommand(.9));
-        addSequential(new LifterAuto(LifterAuto.LifterState.kStop));
 
         // Drive to switch
         addSequential(new AutoDrive(speed, 24));
