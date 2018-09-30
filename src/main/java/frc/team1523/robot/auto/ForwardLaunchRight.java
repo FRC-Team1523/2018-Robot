@@ -54,7 +54,6 @@ public class ForwardLaunchRight extends CommandGroup {
         // Raise
         addSequential(new LifterAuto(LifterAuto.LifterState.kUp));
         addSequential(new WaitCommand(.9));
-        addSequential(new LifterAuto(LifterAuto.LifterState.kStop));
 
         // Forward and launch
 

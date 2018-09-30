@@ -86,7 +86,7 @@ public class ForwardLaunchLeft extends CommandGroup {
 
 
         addSequential(new LifterAuto(LifterAuto.LifterState.kDown));
-        return;
+
         // /*
 //        addSequential(new WaitCommand(.26));
         addSequential(new WaitCommand(1.0));
