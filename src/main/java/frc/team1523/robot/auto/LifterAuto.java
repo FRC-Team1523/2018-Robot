@@ -22,12 +22,12 @@ public class LifterAuto extends InstantCommand {
 
     @Override
     protected void initialize() {
+        // Up
         if (state == LifterState.kUp) {
-            Robot.lifter.setSpeed(1);
-        } else if (state == LifterState.kStop) {
-            Robot.lifter.setSpeed(0);
+            Robot.lifter.raise();
         } else {
-            Robot.lifter.setSpeed(-1);
+            Robot.lifter.lower();
         }
     }
+
 }

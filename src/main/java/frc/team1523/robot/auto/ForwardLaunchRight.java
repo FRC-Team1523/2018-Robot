@@ -25,14 +25,16 @@ public class ForwardLaunchRight extends CommandGroup {
         addSequential(new WaitCommand(.5));
         addSequential(new AutoSpin(.75, 9));
 
+        // Arm down
+        addSequential(new LifterAuto(LifterAuto.LifterState.kDown));
+        addSequential(new WaitCommand(.75));
+
         // Arm open
         addSequential(new AutoGrab(AutoGrab.GrabState.kRelease));
         addSequential(new WaitCommand(.75));
 
 
 
-        addSequential(new LifterAuto(LifterAuto.LifterState.kDown));
-        addSequential(new WaitCommand(.18));
         // Arm close
         addSequential(new AutoGrab(AutoGrab.GrabState.kGrab));
 

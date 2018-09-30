@@ -86,7 +86,10 @@ public class ForwardLaunchLeft extends CommandGroup {
 
 
         addSequential(new LifterAuto(LifterAuto.LifterState.kDown));
-        addSequential(new WaitCommand(.26));
+        return;
+        // /*
+//        addSequential(new WaitCommand(.26));
+        addSequential(new WaitCommand(1.0));
 
         addSequential(new LifterAuto(LifterAuto.LifterState.kStop));
         addSequential(new IntakeAuto(IntakeAuto.GrabState.kGrab));
@@ -109,5 +112,6 @@ public class ForwardLaunchLeft extends CommandGroup {
         addSequential(new IntakeAuto(IntakeAuto.GrabState.kLaunch));
         addSequential(new WaitCommand(.5));
         addSequential(new IntakeAuto(IntakeAuto.GrabState.kStop));
+        // */
     }
 }

@@ -33,6 +33,8 @@ public class RobotMap {
     public static int GRABBER_B = 3;
     public static int WINCH_LOCK_A = 6;
     public static int WINCH_LOCK_B = 7;
+    public static int LIFTER_A = 4;
+    public static int LIFTER_B = 5;
 
     /// Compressor CAN ID
     public static int COMPRESSOR = 0;

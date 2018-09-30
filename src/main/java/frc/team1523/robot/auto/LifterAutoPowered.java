@@ -18,13 +18,13 @@ public class LifterAutoPowered extends InstantCommand {
 
     @Override
     protected void initialize() {
-        if (state == LifterState.kUp) {
-            Robot.lifter.setSpeed(power);
-        } else if (state == LifterState.kStop) {
-            Robot.lifter.setSpeed(0);
-        } else {
-            Robot.lifter.setSpeed(-power);
-        }
+//        if (state == LifterState.kUp) {
+//            Robot.lifter.setSpeed(power);
+//        } else if (state == LifterState.kStop) {
+//            Robot.lifter.setSpeed(0);
+//        } else {
+//            Robot.lifter.setSpeed(-power);
+//        }
     }
 
     public enum LifterState {

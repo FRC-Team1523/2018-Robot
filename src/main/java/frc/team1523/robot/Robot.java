@@ -195,6 +195,8 @@ public class Robot extends IterativeRobot {
 
     @Override
     public void autonomousInit() {
+        encoders.left.reset();
+        encoders.right.reset();
         updateArmSetpoint();
 //        armPIDCommand.enable();
         //        autonomousCommand.start();
